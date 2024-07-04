@@ -1,14 +1,618 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mwendwa John</title>
+    <link rel="icon" type="image/x-icon" href="images/code.svg">
 
     <!-- css file -->
-    <link rel="stylesheet" href="assets/output.css">
+    <link rel="stylesheet" href="assets/output.css" />
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            scroll-behavior: smooth;
+        }
+
+        #scrollToTopBtn {
+            display: none;
+            /* Hidden by default */
+        }
+    </style>
 </head>
-<body>
-    <h1 class="bg-red-400">Hello World</h1>
+
+<body class="max-h-[400px] overflow-y-auto
+    [&::-webkit-scrollbar]:w-2
+    [&::-webkit-scrollbar-track]:rounded-full
+    [&::-webkit-scrollbar-track]:bg-gray-100
+    [&::-webkit-scrollbar-thumb]:rounded-full
+    [&::-webkit-scrollbar-thumb]:bg-blue-300">
+
+    <div class="absolute top-0 -z-10 h-full w-full bg-white overflow-auto">
+        <div
+            class="absolute bottom-auto left-auto right-0 top-0 h-[700px] w-[700px] -translate-x-[30%] translate-y-[20%] rounded-full bg-[#7ca1f3] opacity-50 blur-[80px]">
+        </div>
+
+        <img class="absolute top-0 right-0 z-30 sm:z-50 right-0 mt-16 sm:mt-0 w-40 sm:w-48 md:w-56 lg:w-64 xl:w-72" src="images/shape-01.svg" alt="Image Description">
+
+
+        <!-- ========== HEADER ========== -->
+        <header id="home" class="sticky top-0 z-40 w-full bg-white text-sm py-1.5 sm:py-0">
+            <nav class="relative max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8 border-b border-blue-300"
+                aria-label="Global">
+                <div class="flex items-center justify-between my-4 sm:my-0">
+                    <a class="flex-none text-xl font-semibold text-blue-600 font-bold text-sm sm:text-base" href="#"
+                        aria-label="Brand">
+                        <div class="inline-flex items-center">
+                            <span id="typed-text">Mwendwa John</span>
+                        </div>
+                    </a>
+                    <div class="md:hidden">
+                        <button id="toggleNav"
+                            class="hs-collapse-toggle w-8 h-8 flex justify-center items-center text-sm font-semibold rounded-full border border-gray-200 text-gray-800 hover:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none"
+                            aria-controls="navbar-collapse-with-animation" aria-label="Toggle navigation">
+                            <svg id="openIcon" class="hs-collapse-open:hidden flex-shrink-0 w-4 h-4"
+                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <line x1="3" x2="21" y1="6" y2="6" />
+                                <line x1="3" x2="21" y1="12" y2="12" />
+                                <line x1="3" x2="21" y1="18" y2="18" />
+                            </svg>
+                            <svg id="closeIcon" class="hs-collapse-open:block hidden flex-shrink-0 w-4 h-4"
+                                xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M18 6 6 18" />
+                                <path d="m6 6 12 12" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div id="navbar-collapse-with-animation"
+                    class="hs-collapse hidden md:flex md:flex-grow md:items-center md:justify-end md:pl-7">
+                    <ul class="flex flex-col md:flex-row md:items-center md:space-x-0.5 md:pl-7 py-2 md:py-0">
+                        <li>
+                            <a class="py-3 pl-1 sm:px-3 font-medium text-blue-600 block" href="index.html"
+                                aria-current="page">Home</a>
+                        </li>
+                        <li>
+                            <a class="py-3 pl-1 sm:px-3 font-medium text-gray-500 hover:text-gray-400 block"
+                                href="#about-me">About</a>
+                        </li>
+                        <li>
+                            <a class="py-3 pl-1 sm:px-3 font-medium text-gray-500 hover:text-gray-400 block"
+                                href="pet-projects.html">Pet Projects</a>
+                        </li>
+                        <li>
+                            <a class="py-3 pl-1 sm:px-3 font-medium text-gray-500 hover:text-gray-400 block"
+                                href="#contact">Contact</a>
+                        </li>
+
+                        <li>
+                            <a class="md:border-l md:border-gray-400 py-1 md:py-0 md:my-1.5 md:pl-6 block" href="#">
+                                <button type="button"
+                                    class="py-2 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent bg-blue-100 text-blue-800 hover:bg-blue-200 disabled:opacity-50 disabled:pointer-events-none">
+                                    Download CV
+
+                                    <svg class="flex-shrink-0 size-6 mx-2" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                                        </g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path
+                                                d="M17 17H17.01M17.4 14H18C18.9319 14 19.3978 14 19.7654 14.1522C20.2554 14.3552 20.6448 14.7446 20.8478 15.2346C21 15.6022 21 16.0681 21 17C21 17.9319 21 18.3978 20.8478 18.7654C20.6448 19.2554 20.2554 19.6448 19.7654 19.8478C19.3978 20 18.9319 20 18 20H6C5.06812 20 4.60218 20 4.23463 19.8478C3.74458 19.6448 3.35523 19.2554 3.15224 18.7654C3 18.3978 3 17.9319 3 17C3 16.0681 3 15.6022 3.15224 15.2346C3.35523 14.7446 3.74458 14.3552 4.23463 14.1522C4.60218 14 5.06812 14 6 14H6.6M12 15V4M12 15L9 12M12 15L15 12"
+                                                stroke="#5B40AF" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round"></path>
+                                        </g>
+                                    </svg>
+
+                                </button>
+                            </a>
+
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- ========== END HEADER ========== -->
+
+
+        <!-- ========== MAIN CONTENT ========== -->
+        <main id="content">
+            <div class="max-w-[85rem] mx-auto pt-12 pb-10 px-4 sm:px-6 lg:px-8 md:pt-24">
+
+                <!-- Hero Section -->
+
+                <!-- End Hero Section -->
+
+                <!-- About Me -->
+                <div id="about-me" class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+                    <!-- Title -->
+                    <div class="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
+                        <h2 class="text-2xl font-bold text-blue-600 md:text-4xl md:leading-tight">/ about me</h2>
+                        <p class="mt-1 text-gray-600">Tech Enthusiast</p>
+                    </div>
+                    <!-- End Title -->
+
+                    <!-- About Me -->
+                    <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+                        <!-- Grid -->
+                        <div class="md:grid md:grid-cols-2 md:gap-10 lg:gap-16 md:items-center">
+                            <div class="hidden md:block mb-24 md:mb-0 sm:px-6">
+                                <div class="relative">
+                                    <img class="rounded-xl" src="images/about-me.jpg" alt="Image Description">
+
+                                    <!-- SVG Element -->
+                                    <div class="absolute bottom-0 start-0 -z-[1] translate-y-10 -translate-x-14">
+                                        <svg class="max-w-40 h-auto text-gray-400" width="696" height="653"
+                                            viewBox="0 0 696 653" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <circle cx="72.5" cy="29.5" r="29.5" fill="currentColor" />
+                                            <circle cx="171.5" cy="29.5" r="29.5" fill="currentColor" />
+                                            <circle cx="270.5" cy="29.5" r="29.5" fill="currentColor" />
+                                            <circle cx="369.5" cy="29.5" r="29.5" fill="currentColor" />
+                                            <circle cx="468.5" cy="29.5" r="29.5" fill="currentColor" />
+                                            <circle cx="567.5" cy="29.5" r="29.5" fill="currentColor" />
+                                            <circle cx="666.5" cy="29.5" r="29.5" fill="currentColor" />
+                                            <circle cx="29.5" cy="128.5" r="29.5" fill="currentColor" />
+                                            <circle cx="128.5" cy="128.5" r="29.5" fill="currentColor" />
+                                            <circle cx="227.5" cy="128.5" r="29.5" fill="currentColor" />
+                                            <circle cx="326.5" cy="128.5" r="29.5" fill="currentColor" />
+                                            <circle cx="425.5" cy="128.5" r="29.5" fill="currentColor" />
+                                            <circle cx="524.5" cy="128.5" r="29.5" fill="currentColor" />
+                                            <circle cx="623.5" cy="128.5" r="29.5" fill="currentColor" />
+                                            <circle cx="72.5" cy="227.5" r="29.5" fill="currentColor" />
+                                            <circle cx="171.5" cy="227.5" r="29.5" fill="currentColor" />
+                                            <circle cx="270.5" cy="227.5" r="29.5" fill="currentColor" />
+                                            <circle cx="369.5" cy="227.5" r="29.5" fill="currentColor" />
+                                            <circle cx="468.5" cy="227.5" r="29.5" fill="currentColor" />
+                                            <circle cx="567.5" cy="227.5" r="29.5" fill="currentColor" />
+                                            <circle cx="666.5" cy="227.5" r="29.5" fill="currentColor" />
+                                            <circle cx="29.5" cy="326.5" r="29.5" fill="currentColor" />
+                                            <circle cx="128.5" cy="326.5" r="29.5" fill="currentColor" />
+                                            <circle cx="227.5" cy="326.5" r="29.5" fill="currentColor" />
+                                            <circle cx="326.5" cy="326.5" r="29.5" fill="currentColor" />
+                                            <circle cx="425.5" cy="326.5" r="29.5" fill="currentColor" />
+                                            <circle cx="524.5" cy="326.5" r="29.5" fill="currentColor" />
+                                            <circle cx="623.5" cy="326.5" r="29.5" fill="currentColor" />
+                                            <circle cx="72.5" cy="425.5" r="29.5" fill="currentColor" />
+                                            <circle cx="171.5" cy="425.5" r="29.5" fill="currentColor" />
+                                            <circle cx="270.5" cy="425.5" r="29.5" fill="currentColor" />
+                                            <circle cx="369.5" cy="425.5" r="29.5" fill="currentColor" />
+                                            <circle cx="468.5" cy="425.5" r="29.5" fill="currentColor" />
+                                            <circle cx="567.5" cy="425.5" r="29.5" fill="currentColor" />
+                                            <circle cx="666.5" cy="425.5" r="29.5" fill="currentColor" />
+                                            <circle cx="29.5" cy="524.5" r="29.5" fill="currentColor" />
+                                            <circle cx="128.5" cy="524.5" r="29.5" fill="currentColor" />
+                                            <circle cx="227.5" cy="524.5" r="29.5" fill="currentColor" />
+                                            <circle cx="326.5" cy="524.5" r="29.5" fill="currentColor" />
+                                            <circle cx="425.5" cy="524.5" r="29.5" fill="currentColor" />
+                                            <circle cx="524.5" cy="524.5" r="29.5" fill="currentColor" />
+                                            <circle cx="623.5" cy="524.5" r="29.5" fill="currentColor" />
+                                            <circle cx="72.5" cy="623.5" r="29.5" fill="currentColor" />
+                                            <circle cx="171.5" cy="623.5" r="29.5" fill="currentColor" />
+                                            <circle cx="270.5" cy="623.5" r="29.5" fill="currentColor" />
+                                            <circle cx="369.5" cy="623.5" r="29.5" fill="currentColor" />
+                                            <circle cx="468.5" cy="623.5" r="29.5" fill="currentColor" />
+                                            <circle cx="567.5" cy="623.5" r="29.5" fill="currentColor" />
+                                            <circle cx="666.5" cy="623.5" r="29.5" fill="currentColor" />
+                                        </svg>
+                                    </div>
+                                    <!-- End SVG Element -->
+                                </div>
+                            </div>
+                            <!-- End Col -->
+
+                            <div>
+                                <!-- Title -->
+                                <div class="mb-8">
+                                    <!-- Proficiency -->
+                                    <div>
+                                        <h2 class="mb-2 text-3xl text-gray-800 font-bold lg:text-4xl">
+                                            I'm Proficient in...
+                                        </h2>
+                                        <div class="py-5">
+                                            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                                <div class="col-span-1">
+                                                    <div class="p-2">
+                                                        <h3 class="text-xl font-bold text-teal-800 mb-4">Frontend</h3>
+                                                        <div class="flex flex-wrap gap-2">
+                                                            <span
+                                                                class="bg-teal-200 text-teal-800 px-3 py-1 rounded-xl">HTML</span>
+                                                            <span
+                                                                class="bg-teal-200 text-teal-800 px-3 py-1 rounded-xl">Tailwind</span>
+                                                            <span
+                                                                class="bg-teal-200 text-teal-800 px-3 py-1 rounded-xl">CSS</span>
+                                                            <span
+                                                                class="bg-teal-200 text-teal-800 px-3 py-1 rounded-xl">Bootstrap</span>
+                                                            <span
+                                                                class="bg-teal-200 text-teal-800 px-3 py-1 rounded-xl">JavaScript</span>
+                                                            <span
+                                                                class="bg-teal-200 text-teal-800 px-3 py-1 rounded-xl">Vue</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-span-1">
+                                                    <div class="p-2">
+                                                        <h3 class="text-xl font-bold text-blue-800 mb-4">Backend</h3>
+                                                        <div class="flex flex-wrap gap-2">
+                                                            <span
+                                                                class="bg-blue-100 text-blue-800 px-3 py-1 rounded-xl">Laravel</span>
+                                                            <span
+                                                                class="bg-blue-100 text-blue-800 px-3 py-1 rounded-xl">PHP</span>
+                                                            <span
+                                                                class="bg-blue-100 text-blue-800 px-3 py-1 rounded-xl">Java</span>
+                                                            <span
+                                                                class="bg-blue-100 text-blue-800 px-3 py-1 rounded-xl">Flutter</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-span-1">
+                                                    <div class="p-2">
+                                                        <h3 class="text-xl font-bold text-yellow-800 mb-4">Database</h3>
+                                                        <div class="flex flex-wrap gap-2">
+                                                            <span
+                                                                class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-xl">MySQL</span>
+                                                            <span
+                                                                class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-xl">PostgreSQL</span>
+                                                            <span
+                                                                class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-xl">MongoDB</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <!-- End Proficiency -->
+
+                                    <div>
+                                        <h2 class="mb-2 text-3xl text-gray-800 font-bold lg:text-4xl">
+                                            Who'se this guy?
+                                        </h2>
+                                        <p class="text-gray-600">
+                                            Hi, I'm Mwendwa John, a seasoned software developer, I speak fluent Laravel,
+                                            have a love affair with Flutter, and think in algorithms. By day I tame wild
+                                            code and wrestle with rogue bugs, and by night, I dream in ones and zeros.
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- End Title -->
+
+                                <!-- Blockquote -->
+                                <blockquote class="relative">
+                                    <svg class="absolute top-0 start-0 transform -translate-x-8 -translate-y-4 size-24 text-gray-200"
+                                        width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                        <path
+                                            d="M7.39762 10.3C7.39762 11.0733 7.14888 11.7 6.6514 12.18C6.15392 12.6333 5.52552 12.86 4.76621 12.86C3.84979 12.86 3.09047 12.5533 2.48825 11.94C1.91222 11.3266 1.62421 10.4467 1.62421 9.29999C1.62421 8.07332 1.96459 6.87332 2.64535 5.69999C3.35231 4.49999 4.33418 3.55332 5.59098 2.85999L6.4943 4.25999C5.81354 4.73999 5.26369 5.27332 4.84476 5.85999C4.45201 6.44666 4.19017 7.12666 4.05926 7.89999C4.29491 7.79332 4.56983 7.73999 4.88403 7.73999C5.61716 7.73999 6.21938 7.97999 6.69067 8.45999C7.16197 8.93999 7.39762 9.55333 7.39762 10.3ZM14.6242 10.3C14.6242 11.0733 14.3755 11.7 13.878 12.18C13.3805 12.6333 12.7521 12.86 11.9928 12.86C11.0764 12.86 10.3171 12.5533 9.71484 11.94C9.13881 11.3266 8.85079 10.4467 8.85079 9.29999C8.85079 8.07332 9.19117 6.87332 9.87194 5.69999C10.5789 4.49999 11.5608 3.55332 12.8176 2.85999L13.7209 4.25999C13.0401 4.73999 12.4903 5.27332 12.0713 5.85999C11.6786 6.44666 11.4168 7.12666 11.2858 7.89999C11.5215 7.79332 11.7964 7.73999 12.1106 7.73999C12.8437 7.73999 13.446 7.97999 13.9173 8.45999C14.3886 8.93999 14.6242 9.55333 14.6242 10.3Z"
+                                            fill="currentColor" />
+                                    </svg>
+
+                                    <div class="relative z-10">
+                                        <p class="text-xs font-semibold text-gray-500 tracking-wide uppercase mb-3">
+                                            Fun Quote
+                                        </p>
+
+                                        <p
+                                            class="text-lg font-medium italic text-gray-800 md:text-xl md:leading-normal xl:text-2xl xl:leading-normal">
+                                            Any fool can write code that a computer can understand. Good programmers
+                                            write code that humans can understand.
+                                        </p>
+                                    </div>
+
+                                    <footer class="mt-6">
+                                        <div class="flex items-center">
+                                            <div class="ms-4 md:ms-0">
+                                                <div class="text-base font-semibold text-gray-800">Martin Fowler</div>
+                                                <div class="text-xs text-gray-500">Author & international public speaker
+                                                    | British software developer
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </footer>
+                                </blockquote>
+                                <!-- End Blockquote -->
+                            </div>
+                            <!-- End Col -->
+                        </div>
+                        <!-- End Grid -->
+                    </div>
+                    <!-- End About Me -->
+                </div>
+                <!-- End About Me -->
+
+
+                <!-- Get in contact -->
+                <div id="contact" class="px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+                    <!-- Title -->
+                    <div class="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
+                        <h2 class="text-2xl font-bold text-blue-600 md:text-4xl md:leading-tight">/ get in contact</h2>
+                        <p class="mt-1 text-gray-600">Contact me</p>
+                    </div>
+                    <!-- End Title -->
+
+                    <!-- Hire Me -->
+                    <div class="px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+                        <!-- Grid -->
+                        <div class="grid md:grid-cols-2 items-center gap-12">
+                            <div>
+                                <h1 class="text-3xl font-bold text-blue-600 sm:text-4xl lg:text-5xl lg:leading-tight">
+                                    Hire Me__________
+                                </h1>
+                                <p class="mt-1 md:text-lg text-gray-800">
+                                    I help brands and platforms turn big ideas into beautiful digital products and
+                                    experiences.
+                                </p>
+
+                                <p class="mt-1 text-base text-gray-500">
+                                    Are you looking to bring your innovative idea to life? I specialize in
+                                    transforming
+                                    concepts into fully functional and visually stunning digital products. With a
+                                    focus
+                                    on both design and development, I ensure a seamless and engaging user
+                                    experience.
+                                </p>
+
+                                <div class="mt-8">
+                                    <h2 class="text-lg font-semibold text-gray-800">
+                                        What can you expect?
+                                    </h2>
+
+                                    <ul class="mt-2 space-y-2">
+                                        <li class="flex space-x-3">
+                                            <svg class="flex-shrink-0 mt-0.5 w-5 h-5 text-gray-600"
+                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <polyline points="20 6 9 17 4 12" />
+                                            </svg>
+                                            <span class="text-gray-600">
+                                                Efficient and effective solutions tailored to your needs
+                                            </span>
+                                        </li>
+
+                                        <li class="flex space-x-3">
+                                            <svg class="flex-shrink-0 mt-0.5 w-5 h-5 text-gray-600"
+                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <polyline points="20 6 9 17 4 12" />
+                                            </svg>
+                                            <span class="text-gray-600">
+                                                Industry-leading & user-centric designs
+                                            </span>
+                                        </li>
+
+                                        <li class="flex space-x-3">
+                                            <svg class="flex-shrink-0 mt-0.5 w-5 h-5 text-gray-600"
+                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <polyline points="20 6 9 17 4 12" />
+                                            </svg>
+                                            <span class="text-gray-600">
+                                                Exceptional attention to detail
+                                            </span>
+                                        </li>
+
+                                        <li class="flex space-x-3">
+                                            <svg class="flex-shrink-0 mt-0.5 w-5 h-5 text-gray-600"
+                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <polyline points="20 6 9 17 4 12" />
+                                            </svg>
+                                            <span class="text-gray-600">
+                                                Continuous learning and sharing of best practices
+                                            </span>
+                                        </li>
+
+                                        <li class="flex space-x-3">
+                                            <svg class="flex-shrink-0 mt-0.5 w-5 h-5 text-gray-600"
+                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round">
+                                                <polyline points="20 6 9 17 4 12" />
+                                            </svg>
+                                            <span class="text-gray-600">
+                                                Transparent pricing with no hidden costs
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                            </div>
+                            <!-- End Col -->
+
+                            <div class="relative">
+                                <!-- Card -->
+                                <div
+                                    class="flex flex-col bg-white border border-blue-200 rounded-xl shadow-lg p-4 sm:p-6 lg:p-10">
+                                    <h2 class="text-xl font-semibold text-blue-600">
+                                        Fill in the form
+                                    </h2>
+
+                                    <form>
+                                        <div class="mt-6 grid gap-4 lg:gap-6">
+
+
+                                            <!-- Grid -->
+                                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
+                                                <div>
+                                                    <label for="hs-name-hire-me"
+                                                        class="block mb-2 text-sm text-gray-700 font-medium">
+                                                        Name</label>
+                                                    <input type="text" id="hs-name-hire-me" name="hs-name-hire-me"
+                                                        class="appearance-none border border-blue-200 rounded-lg w-full py-3 px-4 text-sm text-gray-700 leading-tight focus:outline-none focus:border-blue-600 focus:ring-blue-500">
+                                                </div>
+
+                                                <div>
+                                                    <label for="hs-email-hire-me"
+                                                        class="block mb-2 text-sm text-gray-700 font-medium">
+                                                        Email</label>
+                                                    <input type="email" id="hs-email-hire-me" name="hs-email-hire-me"
+                                                        class="appearance-none border border-blue-200 rounded-lg w-full py-3 px-4 text-sm text-gray-700 leading-tight focus:outline-none focus:border-blue-600 focus:ring-blue-500">
+                                                </div>
+                                            </div>
+                                            <!-- End Grid -->
+
+                                            <!-- Grid -->
+                                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
+                                                <div>
+                                                    <label for="hs-company-name-hire-me"
+                                                        class="block mb-2 text-sm text-gray-700 font-medium">Company
+                                                        Name</label>
+                                                    <input type="text" id="hs-company-name-hire-me"
+                                                        name="hs-company-name-hire-me"
+                                                        class="appearance-none border border-blue-200 rounded-lg w-full py-3 px-4 text-sm text-gray-700 leading-tight focus:outline-none focus:border-blue-600 focus:ring-blue-500">
+                                                </div>
+
+                                                <div>
+                                                    <label for="hs-company-website-hire-me"
+                                                        class="block mb-2 text-sm text-gray-700 font-medium">Company
+                                                        Website</label>
+                                                    <input type="text" id="hs-company-website-hire-me"
+                                                        name="hs-company-website-hire-me"
+                                                        class="appearance-none border border-blue-200 rounded-lg w-full py-3 px-4 text-sm text-gray-700 leading-tight focus:outline-none focus:border-blue-600 focus:ring-blue-500">
+                                                </div>
+                                            </div>
+                                            <!-- End Grid -->
+
+                                            <div>
+                                                <label for="hs-details-hire-me"
+                                                    class="block mb-2 text-sm text-gray-700 font-medium">Details</label>
+                                                <textarea name="hs-details-hire-me" id="hs-details-hire-me" rows="4"
+                                                    class="appearance-none border border-blue-200 py-3 px-4 block w-full rounded-lg text-sm focus:outline-none focus:border-blue-600 focus:ring-blue-500"></textarea>
+                                            </div>
+                                        </div>
+
+                                        <!-- Submit Form -->
+                                        <div>
+                                            <!-- Checkbox -->
+                                            <div class="mt-3 flex">
+                                                <div class="flex">
+                                                    <input id="remember-me" name="remember-me" type="checkbox"
+                                                        class="shrink-0 mt-1.5 border-gray-300 rounded text-blue-600 focus:ring-blue-500">
+                                                </div>
+                                                <div class="ml-3">
+                                                    <label for="remember-me" class="text-sm text-gray-600">By
+                                                        submitting
+                                                        this
+                                                        form I have sent you an email with the above
+                                                        information</label>
+                                                </div>
+                                            </div>
+                                            <!-- End Checkbox -->
+
+                                            <div class="mt-6 grid">
+                                                <button type="submit"
+                                                    class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">Send
+                                                    email</button>
+                                            </div>
+
+                                            <div class="mt-3 text-center">
+                                                <p class="text-sm text-gray-500">
+                                                    I'll get back to you in 1-3 business days.
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <!-- Submit Form -->
+                                    </form>
+                                    <!-- End Grid -->
+
+                                </div>
+                                <!-- End Card -->
+                            </div>
+                            <!-- End Col -->
+                        </div>
+                        <!-- End Grid -->
+                    </div>
+                    <!-- End Hire Me -->
+                </div>
+                <!-- End Get in contact -->
+
+            </div>
+        </main>
+        <!-- ========== END MAIN CONTENT ========== -->
+
+        <!-- ========== FOOTER ========== -->
+        <footer class="mt-auto w-full py-10 px-4 sm:px-6 lg:px-8 mx-auto bg-[#e9effd]">
+            <!-- Grid -->
+            <div class="text-center">
+                <div>
+                    <a class="flex-none text-xl font-semibold text-blue-600" href="#" aria-label="Brand">Mwendwa
+                        John</a>
+                </div>
+                <!-- End Col -->
+                <!-- Social Brands -->
+                <div class="mt-3 space-x-2">
+                    <a class="size-8 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                        href="#">
+                        <svg class="flex-shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="currentColor" viewBox="0 0 16 16">
+                            <path
+                                d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z" />
+                        </svg>
+                    </a>
+                    <a class="size-8 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                        href="#">
+                        <svg class="flex-shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="currentColor" viewBox="0 0 16 16">
+                            <path
+                                d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
+                        </svg>
+                    </a>
+                    <a class="size-8 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                        href="#">
+                        <svg class="flex-shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="currentColor" viewBox="0 0 16 16">
+                            <path
+                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                        </svg>
+                    </a>
+                    <a class="size-8 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                        href="#">
+                        <svg class="flex-shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            fill="currentColor" viewBox="0 0 16 16">
+                            <path
+                                d="M3.362 10.11c0 .926-.756 1.681-1.681 1.681S0 11.036 0 10.111C0 9.186.756 8.43 1.68 8.43h1.682v1.68zm.846 0c0-.924.756-1.68 1.681-1.68s1.681.756 1.681 1.68v4.21c0 .924-.756 1.68-1.68 1.68a1.685 1.685 0 0 1-1.682-1.68v-4.21zM5.89 3.362c-.926 0-1.682-.756-1.682-1.681S4.964 0 5.89 0s1.68.756 1.68 1.68v1.682H5.89zm0 .846c.924 0 1.68.756 1.68 1.681S6.814 7.57 5.89 7.57H1.68C.757 7.57 0 6.814 0 5.89c0-.926.756-1.682 1.68-1.682h4.21zm6.749 1.682c0-.926.755-1.682 1.68-1.682.925 0 1.681.756 1.681 1.681s-.756 1.681-1.68 1.681h-1.681V5.89zm-.848 0c0 .924-.755 1.68-1.68 1.68A1.685 1.685 0 0 1 8.43 5.89V1.68C8.43.757 9.186 0 10.11 0c.926 0 1.681.756 1.681 1.68v4.21zm-1.681 6.748c.926 0 1.682.756 1.682 1.681S11.036 16 10.11 16s-1.681-.756-1.681-1.68v-1.682h1.68zm0-.847c-.924 0-1.68-.755-1.68-1.68 0-.925.756-1.681 1.68-1.681h4.21c.924 0 1.68.756 1.68 1.68 0 .926-.756 1.681-1.68 1.681h-4.21z" />
+                        </svg>
+                    </a>
+                </div>
+                <!-- End Social Brands -->
+
+                <div class="mt-3">
+                    <p class="text-gray-500">Built and designed by Mwendwa John.</p>
+                    <p class="text-gray-500">© <span id="year"></span> All rights reserved.</p>
+                </div>
+            </div>
+            <!-- End Grid -->
+        </footer>
+        <!-- ========== END FOOTER ========== -->
+    </div>
+
+    <!-- Scroll to Top Button -->
+    <button type="button" id="scrollToTopBtn"
+        class="fixed bottom-5 right-5 py-2.5 px-1.5 text-sm font-semibold rounded-lg border border-transparent bg-blue-300 text-blue-800 hover:bg-blue-500 transition hover:-translate-y-2 focus:outline-none">
+
+        <svg class="flex-shrink-0 size-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+                <path d="M12 4L6 10M12 4L18 10M12 4L12 14.5M12 20V17.5" stroke="#FFFF" stroke-width="1.5"
+                    stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+        </svg>
+    </button>
+    <!-- End Scroll to Top Button -->
+
+    <script src="assets/main.js"></script>
 </body>
+
 </html>
