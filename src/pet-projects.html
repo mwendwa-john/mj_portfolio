@@ -18,6 +18,25 @@
             scroll-behavior: smooth;
         }
 
+        /* Custom scrollbar styles */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #2563EB;
+            border-radius: 10px;
+            border: 3px solid #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #1e4fbc;
+        }
+
         #scrollToTopBtn {
             display: none;
             /* Hidden by default */
@@ -25,22 +44,19 @@
     </style>
 </head>
 
-<body class="max-h-[400px] overflow-y-auto
-    [&::-webkit-scrollbar]:w-2
-    [&::-webkit-scrollbar-track]:rounded-full
-    [&::-webkit-scrollbar-track]:bg-gray-100
-    [&::-webkit-scrollbar-thumb]:rounded-full
-    [&::-webkit-scrollbar-thumb]:bg-blue-300">
-
+<body>
 
     <div class="absolute top-0 -z-10 h-full w-full bg-white overflow-auto">
         <div
             class="absolute bottom-auto left-auto right-0 top-0 h-[700px] w-[700px] -translate-x-[30%] translate-y-[20%] rounded-full bg-[#7ca1f3] opacity-50 blur-[80px]">
         </div>
 
+        <img class="absolute top-0 right-0 z-30 sm:z-50 right-0 mt-16 sm:mt-0 w-40 sm:w-48 md:w-56 lg:w-64 xl:w-72"
+            src="images/shape-01.svg" alt="Image Description">
+
 
         <!-- ========== HEADER ========== -->
-        <header id="home" class="sticky top-0 z-50 w-full bg-white text-sm py-1.5 sm:py-0">
+        <header id="home" class="sticky top-0 z-40 w-full bg-white text-sm py-1.5 sm:py-0">
             <nav class="relative max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8 border-b border-blue-300"
                 aria-label="Global">
                 <div class="flex items-center justify-between my-4 sm:my-0">
@@ -76,12 +92,15 @@
                     class="hs-collapse hidden md:flex md:flex-grow md:items-center md:justify-end md:pl-7">
                     <ul class="flex flex-col md:flex-row md:items-center md:space-x-0.5 md:pl-7 py-2 md:py-0">
                         <li>
-                            <a class="py-3 pl-1 sm:px-3 font-medium text-blue-600 block" href="index.html"
-                                aria-current="page">Home</a>
+                            <a class="py-3 pl-1 sm:px-3 font-medium text-gray-500 block" href="#home-section">Home</a>
                         </li>
                         <li>
                             <a class="py-3 pl-1 sm:px-3 font-medium text-gray-500 hover:text-gray-400 block"
-                                href="#about-me">About</a>
+                                href="index.html#about-me">About</a>
+                        </li>
+                        <li>
+                            <a class="py-3 pl-1 sm:px-3 font-medium text-gray-500 hover:text-gray-400 block"
+                                href="index.html#experience">Experience</a>
                         </li>
                         <li>
                             <a class="py-3 pl-1 sm:px-3 font-medium text-gray-500 hover:text-gray-400 block"
@@ -89,13 +108,13 @@
                         </li>
                         <li>
                             <a class="py-3 pl-1 sm:px-3 font-medium text-gray-500 hover:text-gray-400 block"
-                                href="#contact">Contact</a>
+                                href="index.html#contact">Contact</a>
                         </li>
 
                         <li>
                             <a class="md:border-l md:border-gray-400 py-1 md:py-0 md:my-1.5 md:pl-6 block" href="#">
                                 <button type="button"
-                                    class="py-2 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent bg-blue-100 text-blue-800 hover:bg-blue-200 disabled:opacity-50 disabled:pointer-events-none">
+                                    class="py-2 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent bg-blue-600 text-white hover:bg-blue-200 disabled:opacity-50 disabled:pointer-events-none">
                                     Download CV
 
                                     <svg class="flex-shrink-0 size-6 mx-2" viewBox="0 0 24 24" fill="none"
@@ -106,7 +125,7 @@
                                         <g id="SVGRepo_iconCarrier">
                                             <path
                                                 d="M17 17H17.01M17.4 14H18C18.9319 14 19.3978 14 19.7654 14.1522C20.2554 14.3552 20.6448 14.7446 20.8478 15.2346C21 15.6022 21 16.0681 21 17C21 17.9319 21 18.3978 20.8478 18.7654C20.6448 19.2554 20.2554 19.6448 19.7654 19.8478C19.3978 20 18.9319 20 18 20H6C5.06812 20 4.60218 20 4.23463 19.8478C3.74458 19.6448 3.35523 19.2554 3.15224 18.7654C3 18.3978 3 17.9319 3 17C3 16.0681 3 15.6022 3.15224 15.2346C3.35523 14.7446 3.74458 14.3552 4.23463 14.1522C4.60218 14 5.06812 14 6 14H6.6M12 15V4M12 15L9 12M12 15L15 12"
-                                                stroke="#5B40AF" stroke-width="2" stroke-linecap="round"
+                                                stroke="#FFFF" stroke-width="2" stroke-linecap="round"
                                                 stroke-linejoin="round"></path>
                                         </g>
                                     </svg>
@@ -330,22 +349,21 @@
                             <!-- Grid -->
                             <div class="grid lg:grid-cols-2 lg:gap-y-16 gap-10">
                                 <!-- Card -->
-                                <a class="group rounded-xl overflow-hidden" href="#">
+                                <a class="group rounded-xl overflow-hidden" target="_blank" href="https://github.com/mwendwa-john/KitaleMastersPoultryFarm">
                                     <div class="sm:flex">
                                         <div
                                             class="flex-shrink-0 relative rounded-xl overflow-hidden w-full sm:w-56 h-44">
                                             <img class="group-hover:scale-105 transition-transform duration-500 ease-in-out size-full absolute top-0 start-0 object-cover rounded-xl"
-                                                src="https://images.unsplash.com/photo-1540575861501-7cf05a4b125a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                                                src="images/projects/kitale_masters_paultry_farm.png"
                                                 alt="Image Description">
                                         </div>
 
                                         <div class="grow mt-4 sm:mt-0 sm:ms-6 px-4 sm:px-0">
                                             <h3 class="text-xl font-semibold text-gray-800 group-hover:text-gray-600">
-                                                Studio by Preline
+                                                Kitale Masters Poultry Farm
                                             </h3>
                                             <p class="mt-3 text-gray-600">
-                                                Produce professional, reliable streams easily leveraging Preline's
-                                                innovative broadcast studio
+                                                The Kitale Masters Poultry Farm website offers valuable insights into poultry farming, featuring an intuitive design and engaging multimedia content. Built with modern user experience.
                                             </p>
                                         </div>
                                     </div>
@@ -353,22 +371,21 @@
                                 <!-- End Card -->
 
                                 <!-- Card -->
-                                <a class="group rounded-xl overflow-hidden" href="#">
+                                <a class="group rounded-xl overflow-hidden" target="_blank" href="https://github.com/mwendwa-john/laravel-ecommerce-web-app">
                                     <div class="sm:flex">
                                         <div
                                             class="flex-shrink-0 relative rounded-xl overflow-hidden w-full sm:w-56 h-44">
                                             <img class="group-hover:scale-105 transition-transform duration-500 ease-in-out size-full absolute top-0 start-0 object-cover rounded-xl"
-                                                src="https://images.unsplash.com/photo-1668906093328-99601a1aa584?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=986&q=80"
+                                                src="images/projects/laravel_ecommerce.png"
                                                 alt="Image Description">
                                         </div>
 
                                         <div class="grow mt-4 sm:mt-0 sm:ms-6 px-4 sm:px-0">
                                             <h3 class="text-xl font-semibold text-gray-800 group-hover:text-gray-600">
-                                                Onsite
+                                                Laravel Ecommerce Web App
                                             </h3>
                                             <p class="mt-3 text-gray-600">
-                                                Optimize your in-person experience with best-in-class capabilities like
-                                                badge printing and lead retrieval
+                                                This ecommerce platform ensures efficient product listings, smooth checkout processes, and comprehensive user management features.
                                             </p>
                                         </div>
                                     </div>
@@ -376,21 +393,21 @@
                                 <!-- End Card -->
 
                                 <!-- Card -->
-                                <a class="group rounded-xl overflow-hidden" href="#">
+                                <a class="group rounded-xl overflow-hidden" target="_blank" href="https://github.com/mwendwa-john/simple-laravel-blog-app">
                                     <div class="sm:flex">
                                         <div
                                             class="flex-shrink-0 relative rounded-xl overflow-hidden w-full sm:w-56 h-44">
                                             <img class="group-hover:scale-105 transition-transform duration-500 ease-in-out size-full absolute top-0 start-0 object-cover rounded-xl"
-                                                src="https://images.unsplash.com/photo-1567016526105-22da7c13161a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
+                                                src="images/projects/simple_blog_app.png"
                                                 alt="Image Description">
                                         </div>
 
                                         <div class="grow mt-4 sm:mt-0 sm:ms-6 px-4 sm:px-0">
                                             <h3 class="text-xl font-semibold text-gray-800 group-hover:text-gray-600">
-                                                The complete guide to OKRs
+                                                Blog App
                                             </h3>
                                             <p class="mt-3 text-gray-600">
-                                                How to make objectives and key results work for your company
+                                                This blog platform provides an elegant interface for writers to publish articles, manage content, and interact with their audience.
                                             </p>
                                         </div>
                                     </div>
@@ -398,21 +415,21 @@
                                 <!-- End Card -->
 
                                 <!-- Card -->
-                                <a class="group rounded-xl overflow-hidden" href="#">
+                                <a class="group rounded-xl overflow-hidden" target="_blank" href="https://github.com/mwendwa-john/CMAP">
                                     <div class="sm:flex">
                                         <div
                                             class="flex-shrink-0 relative rounded-xl overflow-hidden w-full sm:w-56 h-44">
                                             <img class="group-hover:scale-105 transition-transform duration-500 ease-in-out size-full absolute top-0 start-0 object-cover rounded-xl"
-                                                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80"
+                                                src="images/projects/cmap.jpg"
                                                 alt="Image Description">
                                         </div>
 
                                         <div class="grow mt-4 sm:mt-0 sm:ms-6 px-4 sm:px-0">
                                             <h3 class="text-xl font-semibold text-gray-800 group-hover:text-gray-600">
-                                                People program models
+                                                Community Mobilization Against Poverty
                                             </h3>
                                             <p class="mt-3 text-gray-600">
-                                                Six approaches to bringing your People strategy to life
+                                                A dynamic platform dedicated to empowering communities, fostering collaboration, and providing resources to combat poverty effectively.
                                             </p>
                                         </div>
                                     </div>
@@ -439,40 +456,114 @@
                         John</a>
                 </div>
                 <!-- End Col -->
+
                 <!-- Social Brands -->
                 <div class="mt-3 space-x-2">
-                    <a class="size-8 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
-                        href="#">
-                        <svg class="flex-shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                            fill="currentColor" viewBox="0 0 16 16">
-                            <path
-                                d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z" />
-                        </svg>
-                    </a>
-                    <a class="size-8 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
-                        href="#">
-                        <svg class="flex-shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                            fill="currentColor" viewBox="0 0 16 16">
-                            <path
-                                d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
-                        </svg>
-                    </a>
-                    <a class="size-8 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
-                        href="#">
-                        <svg class="flex-shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                            fill="currentColor" viewBox="0 0 16 16">
-                            <path
-                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-                        </svg>
-                    </a>
-                    <a class="size-8 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
-                        href="#">
-                        <svg class="flex-shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                            fill="currentColor" viewBox="0 0 16 16">
-                            <path
-                                d="M3.362 10.11c0 .926-.756 1.681-1.681 1.681S0 11.036 0 10.111C0 9.186.756 8.43 1.68 8.43h1.682v1.68zm.846 0c0-.924.756-1.68 1.681-1.68s1.681.756 1.681 1.68v4.21c0 .924-.756 1.68-1.68 1.68a1.685 1.685 0 0 1-1.682-1.68v-4.21zM5.89 3.362c-.926 0-1.682-.756-1.682-1.681S4.964 0 5.89 0s1.68.756 1.68 1.68v1.682H5.89zm0 .846c.924 0 1.68.756 1.68 1.681S6.814 7.57 5.89 7.57H1.68C.757 7.57 0 6.814 0 5.89c0-.926.756-1.682 1.68-1.682h4.21zm6.749 1.682c0-.926.755-1.682 1.68-1.682.925 0 1.681.756 1.681 1.681s-.756 1.681-1.68 1.681h-1.681V5.89zm-.848 0c0 .924-.755 1.68-1.68 1.68A1.685 1.685 0 0 1 8.43 5.89V1.68C8.43.757 9.186 0 10.11 0c.926 0 1.681.756 1.681 1.68v4.21zm-1.681 6.748c.926 0 1.682.756 1.682 1.681S11.036 16 10.11 16s-1.681-.756-1.681-1.68v-1.682h1.68zm0-.847c-.924 0-1.68-.755-1.68-1.68 0-.925.756-1.681 1.68-1.681h4.21c.924 0 1.68.756 1.68 1.68 0 .926-.756 1.681-1.68 1.681h-4.21z" />
-                        </svg>
-                    </a>
+                    <div class="relative group inline-block">
+                        <a class="inline-flex justify-center items-center gap-x-2 rounded-lg border border-transparent p-2 hover:bg-blue-100 disabled:opacity-50 disabled:pointer-events-none transform transition-transform duration-300 group-hover:-translate-y-2"
+                            target="_blank" href="https://www.linkedin.com/in/mwendwa-john-26bb75190/">
+                            <svg class="flex-shrink-0 size-5" fill="#2563EB" height="200px" width="200px" version="1.1"
+                                id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-143 145 512 512"
+                                xml:space="preserve">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path
+                                        d="M329,145h-432c-22.1,0-40,17.9-40,40v432c0,22.1,17.9,40,40,40h432c22.1,0,40-17.9,40-40V185C369,162.9,351.1,145,329,145z M41.4,508.1H-8.5V348.4h49.9V508.1z M15.1,328.4h-0.4c-18.1,0-29.8-12.2-29.8-27.7c0-15.8,12.1-27.7,30.5-27.7c18.4,0,29.7,11.9,30.1,27.7C45.6,316.1,33.9,328.4,15.1,328.4z M241,508.1h-56.6v-82.6c0-21.6-8.8-36.4-28.3-36.4c-14.9,0-23.2,10-27,19.6c-1.4,3.4-1.2,8.2-1.2,13.1v86.3H71.8c0,0,0.7-146.4,0-159.7h56.1v25.1c3.3-11,21.2-26.6,49.8-26.6c35.5,0,63.3,23,63.3,72.4V508.1z">
+                                    </path>
+                                </g>
+                            </svg>
+                        </a>
+                        <span
+                            class="absolute bottom-full mb-2 hidden group-hover:flex justify-center items-center px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-lg shadow-lg transform transition-transform duration-300 group-hover:-translate-y-2">
+                            LinkedIn
+                        </span>
+                    </div>
+
+                    <div class="relative group inline-block">
+                        <a class="inline-flex justify-center items-center gap-x-2 rounded-lg border border-transparent p-2 hover:bg-blue-100 disabled:opacity-50 disabled:pointer-events-none transform transition-transform duration-300 group-hover:-translate-y-2"
+                            target="_blank" href="https://github.com/mwendwa-john">
+                            <svg class="flex-shrink-0 size-5" viewBox="0 0 73 73" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                fill="#2563EB">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <title>team-collaboration/version-control/github</title>
+                                    <desc>Created with Sketch.</desc>
+                                    <defs> </defs>
+                                    <g id="team-collaboration/version-control/github" stroke="none" stroke-width="1"
+                                        fill="none" fill-rule="evenodd">
+                                        <g id="container" transform="translate(2.000000, 2.000000)" fill-rule="nonzero">
+                                            <rect id="mask" stroke="#2563EB" stroke-width="2" fill="#2563EB" x="-1"
+                                                y="-1" width="71" height="71" rx="14"> </rect>
+                                            <path
+                                                d="M58.3067362,21.4281798 C55.895743,17.2972267 52.6253846,14.0267453 48.4948004,11.615998 C44.3636013,9.20512774 39.8535636,8 34.9614901,8 C30.0700314,8 25.5585181,9.20549662 21.4281798,11.615998 C17.2972267,14.0266224 14.0269912,17.2972267 11.615998,21.4281798 C9.20537366,25.5590099 8,30.0699084 8,34.9607523 C8,40.8357654 9.71405782,46.1187277 13.1430342,50.8109917 C16.5716416,55.5036246 21.0008949,58.7507436 26.4304251,60.5527176 C27.0624378,60.6700211 27.5302994,60.5875152 27.8345016,60.3072901 C28.1388268,60.0266961 28.290805,59.6752774 28.290805,59.2545094 C28.290805,59.1842994 28.2847799,58.5526556 28.2730988,57.3588401 C28.2610487,56.1650247 28.2553926,55.1235563 28.2553926,54.2349267 L27.4479164,54.3746089 C26.9330843,54.468919 26.2836113,54.5088809 25.4994975,54.4975686 C24.7157525,54.4866252 23.9021284,54.4044881 23.0597317,54.2517722 C22.2169661,54.1004088 21.4330982,53.749359 20.7075131,53.1993604 C19.982297,52.6493618 19.4674649,51.9294329 19.1631397,51.0406804 L18.8120898,50.2328353 C18.5780976,49.6950097 18.2097104,49.0975487 17.7064365,48.4426655 C17.2031625,47.7871675 16.6942324,47.3427912 16.1794003,47.108799 L15.9336039,46.9328437 C15.7698216,46.815909 15.6178435,46.6748743 15.4773006,46.511215 C15.3368806,46.3475556 15.2317501,46.1837734 15.1615401,46.0197452 C15.0912072,45.855594 15.1494901,45.7209532 15.3370036,45.6153308 C15.5245171,45.5097084 15.8633939,45.4584343 16.3551097,45.4584343 L17.0569635,45.5633189 C17.5250709,45.6571371 18.104088,45.9373622 18.7947525,46.4057156 C19.4850481,46.8737001 20.052507,47.4821045 20.4972521,48.230683 C21.0358155,49.1905062 21.6846737,49.9218703 22.4456711,50.4251443 C23.2060537,50.9284182 23.9727072,51.1796248 24.744894,51.1796248 C25.5170807,51.1796248 26.1840139,51.121096 26.7459396,51.0046532 C27.3072505,50.8875956 27.8338868,50.7116403 28.3256025,50.477771 C28.5362325,48.9090515 29.1097164,47.7039238 30.0455624,46.8615271 C28.7116959,46.721353 27.5124702,46.5102313 26.4472706,46.2295144 C25.3826858,45.9484285 24.2825656,45.4922482 23.1476478,44.8597436 C22.0121153,44.2280998 21.0701212,43.44374 20.3214198,42.5080169 C19.5725954,41.571802 18.9580429,40.3426971 18.4786232,38.821809 C17.9989575,37.300306 17.7590632,35.5451796 17.7590632,33.5559381 C17.7590632,30.7235621 18.6837199,28.3133066 20.5326645,26.3238191 C19.6665366,24.1944035 19.7483048,21.8072644 20.778215,19.1626478 C21.4569523,18.951772 22.4635002,19.1100211 23.7973667,19.6364115 C25.1314792,20.1630477 26.1082708,20.6141868 26.7287253,20.9882301 C27.3491798,21.3621504 27.8463057,21.6790175 28.2208409,21.9360032 C30.3978419,21.3277217 32.644438,21.0235195 34.9612442,21.0235195 C37.2780503,21.0235195 39.5251383,21.3277217 41.7022622,21.9360032 L43.0362517,21.0938524 C43.9484895,20.5319267 45.0257392,20.0169716 46.2654186,19.5488642 C47.5058357,19.0810026 48.4543466,18.9521409 49.1099676,19.1630167 C50.1627483,21.8077563 50.2565666,24.1947724 49.3901927,26.324188 C51.2390143,28.3136755 52.1640399,30.7245457 52.1640399,33.556307 C52.1640399,35.5455485 51.9232849,37.3062081 51.444357,38.8393922 C50.9648143,40.3728223 50.3449746,41.6006975 49.5845919,42.5256002 C48.8233486,43.4503799 47.8753296,44.2285916 46.7404118,44.8601125 C45.6052481,45.4921252 44.504759,45.9483056 43.4401742,46.2293914 C42.3750975,46.5104772 41.1758719,46.7217219 39.8420054,46.8621419 C41.0585683,47.9149226 41.6669728,49.5767225 41.6669728,51.846804 L41.6669728,59.2535257 C41.6669728,59.6742937 41.8132948,60.0255895 42.1061847,60.3063064 C42.3987058,60.5865315 42.8606653,60.6690374 43.492678,60.5516109 C48.922946,58.7498829 53.3521992,55.5026409 56.7806837,50.810008 C60.2087994,46.117744 61.923472,40.8347817 61.923472,34.9597686 C61.9222424,30.0695396 60.7162539,25.5590099 58.3067362,21.4281798 Z"
+                                                id="Shape" fill="#FFFFFF"> </path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </a>
+                        <span
+                            class="absolute bottom-full mb-2 hidden group-hover:flex justify-center items-center px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-lg shadow-lg transform transition-transform duration-300 group-hover:-translate-y-2">
+                            gitHub
+                        </span>
+                    </div>
+
+                    <div class="relative group inline-block">
+                        <a class="inline-flex justify-center items-center gap-x-2 rounded-lg border border-transparent p-2 hover:bg-blue-100 disabled:opacity-50 disabled:pointer-events-none transform transition-transform duration-300 group-hover:-translate-y-2"
+                            target="_blank" href="https://www.instagram.com/_mwendwajohn/">
+                            <svg class="flex-shrink-0 size-5" fill="#2563EB" height="200px" width="200px" version="1.1"
+                                id="Shopicons" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48" xml:space="preserve">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <style type="text/css">
+                                        .st0 {
+                                            fill: none;
+                                        }
+                                    </style>
+                                    <g>
+                                        <path class="st0" d="M0,0h48v48H0V0z"></path>
+                                        <path
+                                            d="M36,4H12c-4.4,0-8,3.6-8,8v24c0,4.4,3.6,8,8,8h24c4.4,0,8-3.6,8-8V12C44,7.6,40.4,4,36,4z M24,34c-5.5,0-10-4.5-10-10 s4.5-10,10-10s10,4.5,10,10S29.5,34,24,34z M35,15c-1.1,0-2-0.9-2-2c0-1.1,0.9-2,2-2s2,0.9,2,2C37,14.1,36.1,15,35,15z">
+                                        </path>
+                                    </g>
+                                </g>
+                            </svg>
+                        </a>
+                        <span
+                            class="absolute bottom-full mb-2 hidden group-hover:flex justify-center items-center px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-lg shadow-lg transform transition-transform duration-300 group-hover:-translate-y-2">
+                            Instagram
+                        </span>
+                    </div>
+
+                    <div class="relative group inline-block">
+                        <a class="inline-flex justify-center items-center gap-x-2 rounded-lg border border-transparent p-2 hover:bg-blue-100 disabled:opacity-50 disabled:pointer-events-none transform transition-transform duration-300 group-hover:-translate-y-2"
+                            target="_blank" href="https://x.com/mj_fredrick">
+                            <svg class="flex-shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                width="100" height="100" viewBox="0,0,256,256">
+                                <g fill="#2563eb" fill-rule="nonzero" stroke="none" stroke-width="1"
+                                    stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10"
+                                    stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+                                    font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                    <g transform="scale(5.12,5.12)">
+                                        <path
+                                            d="M11,4c-3.866,0 -7,3.134 -7,7v28c0,3.866 3.134,7 7,7h28c3.866,0 7,-3.134 7,-7v-28c0,-3.866 -3.134,-7 -7,-7zM13.08594,13h7.9375l5.63672,8.00977l6.83984,-8.00977h2.5l-8.21094,9.61328l10.125,14.38672h-7.93555l-6.54102,-9.29297l-7.9375,9.29297h-2.5l9.30859,-10.89648zM16.91406,15l14.10742,20h3.06445l-14.10742,-20z">
+                                        </path>
+                                    </g>
+                                </g>
+                            </svg>
+                        </a>
+                        <span
+                            class="absolute bottom-full mb-2 hidden group-hover:flex justify-center items-center px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-lg shadow-lg transform transition-transform duration-300 group-hover:-translate-y-2">
+                            X
+                        </span>
+                    </div>
+
                 </div>
                 <!-- End Social Brands -->
 

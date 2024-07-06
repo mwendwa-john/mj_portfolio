@@ -18,26 +18,65 @@
             scroll-behavior: smooth;
         }
 
+        /* Custom scrollbar styles */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #2563EB;
+            border-radius: 10px;
+            border: 3px solid #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #1e4fbc;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .blinking-cursor {
+            animation: blink 1s step-end infinite;
+        }
+
+        .selected-experience {
+            background-color: #93C5FD;
+        }
+
         #scrollToTopBtn {
+            /* Hide the button by default */
             display: none;
-            /* Hidden by default */
+            transition: smooth;
         }
     </style>
+    <!-- npx tailwindcss -i ./src/assets/input.css -o ./src/assets/output.css --watch -->
 </head>
 
-<body class="max-h-[400px] overflow-y-auto
-    [&::-webkit-scrollbar]:w-2
-    [&::-webkit-scrollbar-track]:rounded-full
-    [&::-webkit-scrollbar-track]:bg-gray-100
-    [&::-webkit-scrollbar-thumb]:rounded-full
-    [&::-webkit-scrollbar-thumb]:bg-blue-300">
+<body>
 
     <div class="absolute top-0 -z-10 h-full w-full bg-white overflow-auto">
         <div
             class="absolute bottom-auto left-auto right-0 top-0 h-[700px] w-[700px] -translate-x-[30%] translate-y-[20%] rounded-full bg-[#7ca1f3] opacity-50 blur-[80px]">
         </div>
 
-        <img class="absolute top-0 right-0 z-30 sm:z-50 right-0 mt-16 sm:mt-0 w-40 sm:w-48 md:w-56 lg:w-64 xl:w-72" src="images/shape-01.svg" alt="Image Description">
+        <img class="absolute top-0 right-0 z-30 sm:z-50 right-0 mt-16 sm:mt-0 w-40 sm:w-48 md:w-56 lg:w-64 xl:w-72"
+            src="images/shape-01.svg" alt="Image Description">
 
 
         <!-- ========== HEADER ========== -->
@@ -77,12 +116,15 @@
                     class="hs-collapse hidden md:flex md:flex-grow md:items-center md:justify-end md:pl-7">
                     <ul class="flex flex-col md:flex-row md:items-center md:space-x-0.5 md:pl-7 py-2 md:py-0">
                         <li>
-                            <a class="py-3 pl-1 sm:px-3 font-medium text-blue-600 block" href="index.html"
-                                aria-current="page">Home</a>
+                            <a class="py-3 pl-1 sm:px-3 font-medium text-gray-500 block" href="#home-section">Home</a>
                         </li>
                         <li>
                             <a class="py-3 pl-1 sm:px-3 font-medium text-gray-500 hover:text-gray-400 block"
-                                href="#about-me">About</a>
+                                href="index.html#about-me">About</a>
+                        </li>
+                        <li>
+                            <a class="py-3 pl-1 sm:px-3 font-medium text-gray-500 hover:text-gray-400 block"
+                                href="index.html#experience">Experience</a>
                         </li>
                         <li>
                             <a class="py-3 pl-1 sm:px-3 font-medium text-gray-500 hover:text-gray-400 block"
@@ -90,13 +132,13 @@
                         </li>
                         <li>
                             <a class="py-3 pl-1 sm:px-3 font-medium text-gray-500 hover:text-gray-400 block"
-                                href="#contact">Contact</a>
+                                href="index.html#contact">Contact</a>
                         </li>
 
                         <li>
                             <a class="md:border-l md:border-gray-400 py-1 md:py-0 md:my-1.5 md:pl-6 block" href="#">
                                 <button type="button"
-                                    class="py-2 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent bg-blue-100 text-blue-800 hover:bg-blue-200 disabled:opacity-50 disabled:pointer-events-none">
+                                    class="py-2 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent bg-blue-600 text-white hover:bg-blue-200 disabled:opacity-50 disabled:pointer-events-none">
                                     Download CV
 
                                     <svg class="flex-shrink-0 size-6 mx-2" viewBox="0 0 24 24" fill="none"
@@ -107,7 +149,7 @@
                                         <g id="SVGRepo_iconCarrier">
                                             <path
                                                 d="M17 17H17.01M17.4 14H18C18.9319 14 19.3978 14 19.7654 14.1522C20.2554 14.3552 20.6448 14.7446 20.8478 15.2346C21 15.6022 21 16.0681 21 17C21 17.9319 21 18.3978 20.8478 18.7654C20.6448 19.2554 20.2554 19.6448 19.7654 19.8478C19.3978 20 18.9319 20 18 20H6C5.06812 20 4.60218 20 4.23463 19.8478C3.74458 19.6448 3.35523 19.2554 3.15224 18.7654C3 18.3978 3 17.9319 3 17C3 16.0681 3 15.6022 3.15224 15.2346C3.35523 14.7446 3.74458 14.3552 4.23463 14.1522C4.60218 14 5.06812 14 6 14H6.6M12 15V4M12 15L9 12M12 15L15 12"
-                                                stroke="#5B40AF" stroke-width="2" stroke-linecap="round"
+                                                stroke="#FFFF" stroke-width="2" stroke-linecap="round"
                                                 stroke-linejoin="round"></path>
                                         </g>
                                     </svg>
@@ -125,11 +167,210 @@
 
         <!-- ========== MAIN CONTENT ========== -->
         <main id="content">
+            <!-- Hero -->
+            <div class="relative overflow-hidden">
+                <!-- Gradients -->
+                <div aria-hidden="true" class="flex absolute -top-96 start-1/2 transform -translate-x-1/2">
+                    <div
+                        class="bg-gradient-to-r from-violet-300/50 to-purple-100 blur-3xl w-[25rem] h-[44rem] rotate-[-60deg] transform -translate-x-[10rem]">
+                    </div>
+                    <div
+                        class="bg-gradient-to-tl from-blue-50 via-blue-100 to-blue-50 blur-3xl w-[90rem] h-[50rem] rounded-fulls origin-top-left -rotate-12 -translate-x-[15rem]">
+                    </div>
+                </div>
+                <!-- End Gradients -->
+
+                <div id="home-section" class="relative z-10">
+                    <div class="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-16">
+                        <div class="max-w-2xl text-center mx-auto">
+                            <!-- Title -->
+                            <div class="mt-5 max-w-2xl">
+                                <h1
+                                    class="block font-semibold text-gray-800 text-4xl md:text-5xl lg:text-6xl sm:whitespace-nowrap">
+                                    hi, <span class="text-blue-600">Mwendwa</span> John here <span
+                                        class="text-blue-600 blinking-cursor">|</span>
+                                </h1>
+                            </div>
+                            <p
+                                class="inline-block my-4 text-xl font-medium bg-clip-text bg-gradient-to-l from-blue-600 to-violet-500 text-transparent">
+                                I create stuff sometimes.
+                            </p>
+                            <!-- End Title -->
+
+                            <div class="mt-5 max-w-3xl">
+                                <p class="text-lg text-gray-600">I'm a savvy software developer hailing from Nairobi,
+                                    Kenya, on a mission to create game-changing products. With experience in software
+                                    development, including prototyping and minimum viable products (MVP), I thrive on
+                                    staying ahead of the tech curve, I'm all about delivering nothing short of
+                                    exceptional results. Let's team up and craft something truly amazing!</p>
+                            </div>
+
+                            <!-- Buttons -->
+                            <div class="mt-8 gap-3 flex justify-center">
+                                <a class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-500 disabled:opacity-50 disabled:pointer-events-none"
+                                    href="#contact">
+                                    <svg class="flex-shrink-0 size-5" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                                        </g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path d="M4 7.00005L10.2 11.65C11.2667 12.45 12.7333 12.45 13.8 11.65L20 7"
+                                                stroke="#FFFF" stroke-width="2" stroke-linecap="round"
+                                                stroke-linejoin="round"></path>
+                                            <rect x="3" y="5" width="18" height="14" rx="2" stroke="#FFFF"
+                                                stroke-width="2" stroke-linecap="round"></rect>
+                                        </g>
+                                    </svg>
+
+                                    Say hi
+                                </a>
+
+                                <a class="py-3 px-4 inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-100 text-blue-800 hover:bg-blue-300 disabled:opacity-50 disabled:pointer-events-none"
+                                    href="#">
+                                    View CV
+
+                                    <svg class="flex-shrink-0 size-5" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round">
+                                        </g>
+                                        <g id="SVGRepo_iconCarrier">
+                                            <path
+                                                d="M12.6385 3.05526L12.8719 2.08289L12.6385 3.05526ZM13.9373 3.93726L13.2302 4.64437L13.9373 3.93726ZM13.2166 3.29472L13.7391 2.44208L13.2166 3.29472ZM6.09202 20.782L6.54601 19.891L6.09202 20.782ZM5.21799 19.908L6.10899 19.454L5.21799 19.908ZM17.908 20.782L17.454 19.891L17.908 20.782ZM18.782 19.908L17.891 19.454L18.782 19.908ZM18.0627 8.06274L18.7698 7.35563L18.0627 8.06274ZM18.7053 8.78343L19.5579 8.26093L18.7053 8.78343ZM18.9447 9.36154L19.9171 9.12809L18.9447 9.36154ZM5.21799 4.09202L6.10899 4.54601L5.21799 4.09202ZM6.09202 3.21799L6.54601 4.10899L6.09202 3.21799ZM13.9701 11.7575C13.8362 11.2217 13.2933 10.8959 12.7575 11.0299C12.2217 11.1638 11.8959 11.7067 12.0299 12.2425L13.9701 11.7575ZM14.5 18L13.5299 18.2425C13.6411 18.6877 14.0411 19 14.5 19C14.9589 19 15.3589 18.6877 15.4701 18.2425L14.5 18ZM16.9701 12.2425C17.1041 11.7067 16.7783 11.1638 16.2425 11.0299C15.7067 10.8959 15.1638 11.2217 15.0299 11.7575L16.9701 12.2425ZM11 19C11.5523 19 12 18.5523 12 18C12 17.4477 11.5523 17 11 17V19ZM9.23463 17.8478L8.85195 18.7716H8.85195L9.23463 17.8478ZM8.15224 16.7654L7.22836 17.1481H7.22836L8.15224 16.7654ZM11 13C11.5523 13 12 12.5523 12 12C12 11.4477 11.5523 11 11 11V13ZM9.23463 12.1522L8.85195 11.2284L9.23463 12.1522ZM8.15224 13.2346L7.22836 12.8519L8.15224 13.2346ZM14 3.17981C14 2.62752 13.5523 2.17981 13 2.17981C12.4477 2.17981 12 2.62752 12 3.17981H14ZM18.82 10C19.3723 10 19.82 9.55229 19.82 9C19.82 8.44772 19.3723 8 18.82 8V10ZM15.8 20H8.2V22H15.8V20ZM6 17.8V6.2H4V17.8H6ZM8.2 4H11.6745V2H8.2V4ZM18 10.3255V17.8H20V10.3255H18ZM11.6745 4C12.2113 4 12.3167 4.00643 12.405 4.02763L12.8719 2.08289C12.4999 1.99357 12.1161 2 11.6745 2V4ZM14.6444 3.23015C14.3321 2.91791 14.0653 2.64199 13.7391 2.44208L12.6941 4.14736C12.7715 4.19482 12.8506 4.2648 13.2302 4.64437L14.6444 3.23015ZM12.405 4.02763C12.5071 4.05213 12.6046 4.09253 12.6941 4.14736L13.7391 2.44208C13.4707 2.27759 13.178 2.15638 12.8719 2.08289L12.405 4.02763ZM8.2 20C7.62345 20 7.25117 19.9992 6.96784 19.9761C6.69617 19.9539 6.59545 19.9162 6.54601 19.891L5.63803 21.673C6.01641 21.8658 6.40963 21.9371 6.80497 21.9694C7.18864 22.0008 7.65645 22 8.2 22V20ZM4 17.8C4 18.3436 3.99922 18.8114 4.03057 19.195C4.06287 19.5904 4.13419 19.9836 4.32698 20.362L6.10899 19.454C6.0838 19.4045 6.04612 19.3038 6.02393 19.0322C6.00078 18.7488 6 18.3766 6 17.8H4ZM6.54601 19.891C6.35785 19.7951 6.20487 19.6422 6.10899 19.454L4.32698 20.362C4.6146 20.9265 5.07354 21.3854 5.63803 21.673L6.54601 19.891ZM15.8 22C16.3436 22 16.8114 22.0008 17.195 21.9694C17.5904 21.9371 17.9836 21.8658 18.362 21.673L17.454 19.891C17.4045 19.9162 17.3038 19.9539 17.0322 19.9761C16.7488 19.9992 16.3766 20 15.8 20V22ZM18 17.8C18 18.3766 17.9992 18.7488 17.9761 19.0322C17.9539 19.3038 17.9162 19.4045 17.891 19.454L19.673 20.362C19.8658 19.9836 19.9371 19.5904 19.9694 19.195C20.0008 18.8114 20 18.3436 20 17.8H18ZM18.362 21.673C18.9265 21.3854 19.3854 20.9265 19.673 20.362L17.891 19.454C17.7951 19.6422 17.6422 19.7951 17.454 19.891L18.362 21.673ZM17.3556 8.76985C17.7352 9.14941 17.8052 9.22849 17.8526 9.30593L19.5579 8.26093C19.358 7.93471 19.0821 7.66788 18.7698 7.35563L17.3556 8.76985ZM20 10.3255C20 9.8839 20.0064 9.50012 19.9171 9.12809L17.9724 9.59498C17.9936 9.6833 18 9.7887 18 10.3255H20ZM17.8526 9.30593C17.9075 9.3954 17.9479 9.49295 17.9724 9.59498L19.9171 9.12809C19.8436 8.82198 19.7224 8.52935 19.5579 8.26093L17.8526 9.30593ZM6 6.2C6 5.62345 6.00078 5.25117 6.02393 4.96784C6.04612 4.69617 6.0838 4.59545 6.10899 4.54601L4.32698 3.63803C4.13419 4.01641 4.06287 4.40963 4.03057 4.80497C3.99922 5.18864 4 5.65645 4 6.2H6ZM8.2 2C7.65645 2 7.18864 1.99922 6.80497 2.03057C6.40963 2.06287 6.01641 2.13419 5.63803 2.32698L6.54601 4.10899C6.59545 4.0838 6.69617 4.04612 6.96784 4.02393C7.25117 4.00078 7.62345 4 8.2 4V2ZM6.10899 4.54601C6.20487 4.35785 6.35785 4.20487 6.54601 4.10899L5.63803 2.32698C5.07354 2.6146 4.6146 3.07354 4.32698 3.63803L6.10899 4.54601ZM12.0299 12.2425L13.5299 18.2425L15.4701 17.7575L13.9701 11.7575L12.0299 12.2425ZM15.4701 18.2425L16.9701 12.2425L15.0299 11.7575L13.5299 17.7575L15.4701 18.2425ZM11 17C10.5204 17 10.2107 16.9995 9.97376 16.9833C9.74576 16.9677 9.65893 16.9411 9.61732 16.9239L8.85195 18.7716C9.17788 18.9066 9.50779 18.9561 9.83762 18.9787C10.1585 19.0005 10.5477 19 11 19V17ZM7 15C7 15.4523 6.99946 15.8415 7.02135 16.1624C7.04385 16.4922 7.09336 16.8221 7.22836 17.1481L9.07612 16.3827C9.05888 16.3411 9.03227 16.2542 9.01671 16.0262C9.00054 15.7893 9 15.4796 9 15H7ZM9.61732 16.9239C9.37229 16.8224 9.17761 16.6277 9.07612 16.3827L7.22836 17.1481C7.53284 17.8831 8.11687 18.4672 8.85195 18.7716L9.61732 16.9239ZM11 11C10.5477 11 10.1585 10.9995 9.83762 11.0213C9.50779 11.0439 9.17788 11.0934 8.85195 11.2284L9.61732 13.0761C9.65893 13.0589 9.74576 13.0323 9.97376 13.0167C10.2107 13.0005 10.5204 13 11 13V11ZM9 15C9 14.5204 9.00054 14.2107 9.01671 13.9738C9.03227 13.7458 9.05888 13.6589 9.07612 13.6173L7.22836 12.8519C7.09336 13.1779 7.04385 13.5078 7.02135 13.8376C6.99946 14.1585 7 14.5477 7 15H9ZM8.85195 11.2284C8.11686 11.5328 7.53284 12.1169 7.22836 12.8519L9.07612 13.6173C9.17761 13.3723 9.37229 13.1776 9.61732 13.0761L8.85195 11.2284ZM12 3.17981V8H14V3.17981H12ZM14 10H18.82V8H14V10ZM12 8C12 9.10457 12.8954 10 14 10V8V8H12ZM13.2302 4.64437L17.3556 8.76985L18.7698 7.35563L14.6444 3.23015L13.2302 4.64437Z"
+                                                fill="#1E40AF"></path>
+                                        </g>
+                                    </svg>
+                                </a>
+                            </div>
+                            <!-- End Buttons -->
+                            <!-- <div class="mt-6">socials</div> -->
+                            <p class="inline-block my-4 text-sm uppercase text-gray-500">
+                                socials
+                            </p>
+
+                            <!-- Social Brands -->
+                            <div class="mt-3 space-x-2">
+                                <div class="relative group inline-block">
+                                    <a class="inline-flex justify-center items-center gap-x-2 rounded-lg border border-transparent p-2 hover:bg-blue-100 disabled:opacity-50 disabled:pointer-events-none transform transition-transform duration-300 group-hover:-translate-y-2"
+                                        target="_blank" href="https://www.linkedin.com/in/mwendwa-john-26bb75190/">
+                                        <svg class="flex-shrink-0 size-5" fill="#2563EB" height="200px" width="200px"
+                                            version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-143 145 512 512"
+                                            xml:space="preserve">
+                                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                stroke-linejoin="round"></g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <path
+                                                    d="M329,145h-432c-22.1,0-40,17.9-40,40v432c0,22.1,17.9,40,40,40h432c22.1,0,40-17.9,40-40V185C369,162.9,351.1,145,329,145z M41.4,508.1H-8.5V348.4h49.9V508.1z M15.1,328.4h-0.4c-18.1,0-29.8-12.2-29.8-27.7c0-15.8,12.1-27.7,30.5-27.7c18.4,0,29.7,11.9,30.1,27.7C45.6,316.1,33.9,328.4,15.1,328.4z M241,508.1h-56.6v-82.6c0-21.6-8.8-36.4-28.3-36.4c-14.9,0-23.2,10-27,19.6c-1.4,3.4-1.2,8.2-1.2,13.1v86.3H71.8c0,0,0.7-146.4,0-159.7h56.1v25.1c3.3-11,21.2-26.6,49.8-26.6c35.5,0,63.3,23,63.3,72.4V508.1z">
+                                                </path>
+                                            </g>
+                                        </svg>
+                                    </a>
+                                    <span
+                                        class="absolute bottom-full mb-2 hidden group-hover:flex justify-center items-center px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-lg shadow-lg transform transition-transform duration-300 group-hover:-translate-y-2">
+                                        LinkedIn
+                                    </span>
+                                </div>
+
+                                <div class="relative group inline-block">
+                                    <a class="inline-flex justify-center items-center gap-x-2 rounded-lg border border-transparent p-2 hover:bg-blue-100 disabled:opacity-50 disabled:pointer-events-none transform transition-transform duration-300 group-hover:-translate-y-2"
+                                        target="_blank" href="https://github.com/mwendwa-john">
+                                        <svg class="flex-shrink-0 size-5" viewBox="0 0 73 73" version="1.1"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" fill="#2563EB">
+                                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                stroke-linejoin="round"></g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <title>team-collaboration/version-control/github</title>
+                                                <desc>Created with Sketch.</desc>
+                                                <defs> </defs>
+                                                <g id="team-collaboration/version-control/github" stroke="none"
+                                                    stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <g id="container" transform="translate(2.000000, 2.000000)"
+                                                        fill-rule="nonzero">
+                                                        <rect id="mask" stroke="#2563EB" stroke-width="2" fill="#2563EB"
+                                                            x="-1" y="-1" width="71" height="71" rx="14"> </rect>
+                                                        <path
+                                                            d="M58.3067362,21.4281798 C55.895743,17.2972267 52.6253846,14.0267453 48.4948004,11.615998 C44.3636013,9.20512774 39.8535636,8 34.9614901,8 C30.0700314,8 25.5585181,9.20549662 21.4281798,11.615998 C17.2972267,14.0266224 14.0269912,17.2972267 11.615998,21.4281798 C9.20537366,25.5590099 8,30.0699084 8,34.9607523 C8,40.8357654 9.71405782,46.1187277 13.1430342,50.8109917 C16.5716416,55.5036246 21.0008949,58.7507436 26.4304251,60.5527176 C27.0624378,60.6700211 27.5302994,60.5875152 27.8345016,60.3072901 C28.1388268,60.0266961 28.290805,59.6752774 28.290805,59.2545094 C28.290805,59.1842994 28.2847799,58.5526556 28.2730988,57.3588401 C28.2610487,56.1650247 28.2553926,55.1235563 28.2553926,54.2349267 L27.4479164,54.3746089 C26.9330843,54.468919 26.2836113,54.5088809 25.4994975,54.4975686 C24.7157525,54.4866252 23.9021284,54.4044881 23.0597317,54.2517722 C22.2169661,54.1004088 21.4330982,53.749359 20.7075131,53.1993604 C19.982297,52.6493618 19.4674649,51.9294329 19.1631397,51.0406804 L18.8120898,50.2328353 C18.5780976,49.6950097 18.2097104,49.0975487 17.7064365,48.4426655 C17.2031625,47.7871675 16.6942324,47.3427912 16.1794003,47.108799 L15.9336039,46.9328437 C15.7698216,46.815909 15.6178435,46.6748743 15.4773006,46.511215 C15.3368806,46.3475556 15.2317501,46.1837734 15.1615401,46.0197452 C15.0912072,45.855594 15.1494901,45.7209532 15.3370036,45.6153308 C15.5245171,45.5097084 15.8633939,45.4584343 16.3551097,45.4584343 L17.0569635,45.5633189 C17.5250709,45.6571371 18.104088,45.9373622 18.7947525,46.4057156 C19.4850481,46.8737001 20.052507,47.4821045 20.4972521,48.230683 C21.0358155,49.1905062 21.6846737,49.9218703 22.4456711,50.4251443 C23.2060537,50.9284182 23.9727072,51.1796248 24.744894,51.1796248 C25.5170807,51.1796248 26.1840139,51.121096 26.7459396,51.0046532 C27.3072505,50.8875956 27.8338868,50.7116403 28.3256025,50.477771 C28.5362325,48.9090515 29.1097164,47.7039238 30.0455624,46.8615271 C28.7116959,46.721353 27.5124702,46.5102313 26.4472706,46.2295144 C25.3826858,45.9484285 24.2825656,45.4922482 23.1476478,44.8597436 C22.0121153,44.2280998 21.0701212,43.44374 20.3214198,42.5080169 C19.5725954,41.571802 18.9580429,40.3426971 18.4786232,38.821809 C17.9989575,37.300306 17.7590632,35.5451796 17.7590632,33.5559381 C17.7590632,30.7235621 18.6837199,28.3133066 20.5326645,26.3238191 C19.6665366,24.1944035 19.7483048,21.8072644 20.778215,19.1626478 C21.4569523,18.951772 22.4635002,19.1100211 23.7973667,19.6364115 C25.1314792,20.1630477 26.1082708,20.6141868 26.7287253,20.9882301 C27.3491798,21.3621504 27.8463057,21.6790175 28.2208409,21.9360032 C30.3978419,21.3277217 32.644438,21.0235195 34.9612442,21.0235195 C37.2780503,21.0235195 39.5251383,21.3277217 41.7022622,21.9360032 L43.0362517,21.0938524 C43.9484895,20.5319267 45.0257392,20.0169716 46.2654186,19.5488642 C47.5058357,19.0810026 48.4543466,18.9521409 49.1099676,19.1630167 C50.1627483,21.8077563 50.2565666,24.1947724 49.3901927,26.324188 C51.2390143,28.3136755 52.1640399,30.7245457 52.1640399,33.556307 C52.1640399,35.5455485 51.9232849,37.3062081 51.444357,38.8393922 C50.9648143,40.3728223 50.3449746,41.6006975 49.5845919,42.5256002 C48.8233486,43.4503799 47.8753296,44.2285916 46.7404118,44.8601125 C45.6052481,45.4921252 44.504759,45.9483056 43.4401742,46.2293914 C42.3750975,46.5104772 41.1758719,46.7217219 39.8420054,46.8621419 C41.0585683,47.9149226 41.6669728,49.5767225 41.6669728,51.846804 L41.6669728,59.2535257 C41.6669728,59.6742937 41.8132948,60.0255895 42.1061847,60.3063064 C42.3987058,60.5865315 42.8606653,60.6690374 43.492678,60.5516109 C48.922946,58.7498829 53.3521992,55.5026409 56.7806837,50.810008 C60.2087994,46.117744 61.923472,40.8347817 61.923472,34.9597686 C61.9222424,30.0695396 60.7162539,25.5590099 58.3067362,21.4281798 Z"
+                                                            id="Shape" fill="#FFFFFF"> </path>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </a>
+                                    <span
+                                        class="absolute bottom-full mb-2 hidden group-hover:flex justify-center items-center px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-lg shadow-lg transform transition-transform duration-300 group-hover:-translate-y-2">
+                                        gitHub
+                                    </span>
+                                </div>
+
+                                <div class="relative group inline-block">
+                                    <a class="inline-flex justify-center items-center gap-x-2 rounded-lg border border-transparent p-2 hover:bg-blue-100 disabled:opacity-50 disabled:pointer-events-none transform transition-transform duration-300 group-hover:-translate-y-2"
+                                        target="_blank" href="https://www.instagram.com/_mwendwajohn/">
+                                        <svg class="flex-shrink-0 size-5" fill="#2563EB" height="200px" width="200px"
+                                            version="1.1" id="Shopicons" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48"
+                                            xml:space="preserve">
+                                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                stroke-linejoin="round"></g>
+                                            <g id="SVGRepo_iconCarrier">
+                                                <style type="text/css">
+                                                    .st0 {
+                                                        fill: none;
+                                                    }
+                                                </style>
+                                                <g>
+                                                    <path class="st0" d="M0,0h48v48H0V0z"></path>
+                                                    <path
+                                                        d="M36,4H12c-4.4,0-8,3.6-8,8v24c0,4.4,3.6,8,8,8h24c4.4,0,8-3.6,8-8V12C44,7.6,40.4,4,36,4z M24,34c-5.5,0-10-4.5-10-10 s4.5-10,10-10s10,4.5,10,10S29.5,34,24,34z M35,15c-1.1,0-2-0.9-2-2c0-1.1,0.9-2,2-2s2,0.9,2,2C37,14.1,36.1,15,35,15z">
+                                                    </path>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </a>
+                                    <span
+                                        class="absolute bottom-full mb-2 hidden group-hover:flex justify-center items-center px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-lg shadow-lg transform transition-transform duration-300 group-hover:-translate-y-2">
+                                        Instagram
+                                    </span>
+                                </div>
+
+                                <div class="relative group inline-block">
+                                    <a class="inline-flex justify-center items-center gap-x-2 rounded-lg border border-transparent p-2 hover:bg-blue-100 disabled:opacity-50 disabled:pointer-events-none transform transition-transform duration-300 group-hover:-translate-y-2"
+                                        target="_blank" href="https://x.com/mj_fredrick">
+                                        <svg class="flex-shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" x="0px"
+                                            y="0px" width="100" height="100" viewBox="0,0,256,256">
+                                            <g fill="#2563eb" fill-rule="nonzero" stroke="none" stroke-width="1"
+                                                stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10"
+                                                stroke-dasharray="" stroke-dashoffset="0" font-family="none"
+                                                font-weight="none" font-size="none" text-anchor="none"
+                                                style="mix-blend-mode: normal">
+                                                <g transform="scale(5.12,5.12)">
+                                                    <path
+                                                        d="M11,4c-3.866,0 -7,3.134 -7,7v28c0,3.866 3.134,7 7,7h28c3.866,0 7,-3.134 7,-7v-28c0,-3.866 -3.134,-7 -7,-7zM13.08594,13h7.9375l5.63672,8.00977l6.83984,-8.00977h2.5l-8.21094,9.61328l10.125,14.38672h-7.93555l-6.54102,-9.29297l-7.9375,9.29297h-2.5l9.30859,-10.89648zM16.91406,15l14.10742,20h3.06445l-14.10742,-20z">
+                                                    </path>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    </a>
+                                    <span
+                                        class="absolute bottom-full mb-2 hidden group-hover:flex justify-center items-center px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-lg shadow-lg transform transition-transform duration-300 group-hover:-translate-y-2">
+                                        X
+                                    </span>
+                                </div>
+
+                            </div>
+                            <!-- End Social Brands -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Hero -->
+
             <div class="max-w-[85rem] mx-auto pt-12 pb-10 px-4 sm:px-6 lg:px-8 md:pt-24">
-
-                <!-- Hero Section -->
-
-                <!-- End Hero Section -->
 
                 <!-- About Me -->
                 <div id="about-me" class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
@@ -213,7 +454,7 @@
                                 <div class="mb-8">
                                     <!-- Proficiency -->
                                     <div>
-                                        <h2 class="mb-2 text-3xl text-gray-800 font-bold lg:text-4xl">
+                                        <h2 class="mb-2 text-2xl text-blue-500 font-semibold lg:text-3xl">
                                             I'm Proficient in...
                                         </h2>
                                         <div class="py-5">
@@ -272,14 +513,23 @@
                                     <!-- End Proficiency -->
 
                                     <div>
-                                        <h2 class="mb-2 text-3xl text-gray-800 font-bold lg:text-4xl">
-                                            Who'se this guy?
+                                        <h2 class="mb-2 text-2xl text-blue-500 font-semibold lg:text-3xl">
+                                            Who is this guy?
                                         </h2>
                                         <p class="text-gray-600">
                                             Hi, I'm Mwendwa John, a seasoned software developer, I speak fluent Laravel,
                                             have a love affair with Flutter, and think in algorithms. By day I tame wild
                                             code and wrestle with rogue bugs, and by night, I dream in ones and zeros.
                                         </p>
+
+                                        <div class="my-3">
+                                            <h2 class="mb-2 text-xl text-blue-500 font-bold lg:text-2xl">
+                                                I love
+                                            </h2>
+                                            <p class="text-gray-600">
+                                                Technology, Art, Music, Gym, Movies, Fashion, Food
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                                 <!-- End Title -->
@@ -328,216 +578,854 @@
                 <!-- End About Me -->
 
 
-                <!-- Get in contact -->
-                <div id="contact" class="px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+                <!-- Experience -->
+                <div id="experience" class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
                     <!-- Title -->
                     <div class="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
-                        <h2 class="text-2xl font-bold text-blue-600 md:text-4xl md:leading-tight">/ get in contact</h2>
-                        <p class="mt-1 text-gray-600">Contact me</p>
+                        <h2 class="text-2xl font-bold text-blue-600 md:text-4xl md:leading-tight">/ experience</h2>
+                        <p class="mt-1 text-gray-600">My Work Experiences</p>
                     </div>
                     <!-- End Title -->
 
-                    <!-- Hire Me -->
-                    <div class="px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-                        <!-- Grid -->
-                        <div class="grid md:grid-cols-2 items-center gap-12">
-                            <div>
-                                <h1 class="text-3xl font-bold text-blue-600 sm:text-4xl lg:text-5xl lg:leading-tight">
-                                    Hire Me__________
-                                </h1>
-                                <p class="mt-1 md:text-lg text-gray-800">
-                                    I help brands and platforms turn big ideas into beautiful digital products and
-                                    experiences.
-                                </p>
+                    <!-- Experience -->
+                    <div class="max-w-[85rem] flex px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+                        <div class="container mx-auto flex flex-col md:flex-row">
+                            <!-- Topics List -->
+                            <div class="w-full md:w-1/4 bg-blue-100 p-6 rounded-xl">
+                                <ul id="topicsList">
+                                    <li class="py-3 px-4 my-2 rounded-lg text-blue-800 text-sm font-medium cursor-pointer hover:bg-blue-200"
+                                        onclick="showExplanation(1)">Superior Hotels, Kenya</li>
 
-                                <p class="mt-1 text-base text-gray-500">
-                                    Are you looking to bring your innovative idea to life? I specialize in
-                                    transforming
-                                    concepts into fully functional and visually stunning digital products. With a
-                                    focus
-                                    on both design and development, I ensure a seamless and engaging user
-                                    experience.
-                                </p>
+                                    <li class="py-3 px-4 my-2 rounded-lg text-blue-800 text-sm font-medium cursor-pointer hover:bg-blue-200"
+                                        onclick="showExplanation(2)">Utest</li>
 
-                                <div class="mt-8">
-                                    <h2 class="text-lg font-semibold text-gray-800">
-                                        What can you expect?
+                                    <li class="py-3 px-4 my-2 rounded-lg text-blue-800 text-sm font-medium cursor-pointer hover:bg-blue-200"
+                                        onclick="showExplanation(3)">Techducate Africa</li>
+
+                                    <li class="py-3 px-4 my-2 rounded-lg text-blue-800 text-sm font-medium cursor-pointer hover:bg-blue-200"
+                                        onclick="showExplanation(4)">IEN Africa</li>
+
+                                </ul>
+                            </div>
+
+                            <!-- Vertical Line -->
+                            <div class="hidden md:block border-r-2 p-2 border-blue-600 h-full"></div>
+
+                            <!-- Explanations -->
+                            <div class="w-full md:w-3/4 p-6">
+                                <!-- Superior -->
+                                <div id="explanation1" class="explanation">
+                                    <h2 class="text-xl text-base text-gray-600 md:text-3xl md:leading-tight">Software
+                                        Developer @ <span class="font-bold text-blue-600">Superior Hotels, Kenya</span>
                                     </h2>
 
-                                    <ul class="mt-2 space-y-2">
+                                    <p class="uppercase text-base font-medium text-blue-500 mb-2">October 2023 -
+                                        Present</p>
+
+                                    <ul class="mt-2 space-y-4 p-0 sm:p-5">
                                         <li class="flex space-x-3">
-                                            <svg class="flex-shrink-0 mt-0.5 w-5 h-5 text-gray-600"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round">
-                                                <polyline points="20 6 9 17 4 12" />
+                                            <svg class="flex-shrink-0 size-2" fill="#2563EB" version="1.1" id="Capa_1"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460.492 460.492"
+                                                xml:space="preserve">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                    stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <g>
+                                                        <g>
+                                                            <path
+                                                                d="M349.574,139.747c-6.592-3.469-12.279-6.464-16.118-8.871c-27.894-17.491-57.863-34.698-89.062-51.146 c-29.234-15.417-59.913-30.356-91.175-44.412c-8.1-3.639-15.879-8.221-24.115-13.065c-13.584-7.988-27.627-16.255-43.826-20.479 C70.406-2.099,58.331,0.427,50.356,8.798C39.723,19.962,39.103,38.09,39.893,54.345c1.333,27.121,1.655,54.857,1.97,81.684 c0.152,12.901,0.308,25.796,0.559,38.682c0.478,23.737,0.731,47.469,0.983,71.196c0.66,61.388,1.34,124.857,6,187.393 c0.155,2.087,0.571,4.144,1.274,6.251c1.912,12.213,11.243,20.941,22.625,20.941c3.057,0,6.178-0.625,9.265-1.844 c59.946-23.698,120.519-58.711,185.194-107.038c27.507-20.561,55.629-43.274,83.578-67.512c5.134-4.453,11.979-9.252,19.22-14.346 c19.348-13.568,41.274-28.959,48.348-49.538c2.727-7.949,3.926-20.416-5.905-34.652 C399.515,166.038,370.652,150.844,349.574,139.747z M359.323,208.936C294.025,268.96,200.035,348.73,97.914,396.875 c-3.422-62.194-3.948-125.334-4.445-186.544c-0.396-48.109-0.808-97.7-2.621-146.797 C193.397,106.686,285.672,156.661,359.323,208.936z">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
                                             </svg>
                                             <span class="text-gray-600">
-                                                Efficient and effective solutions tailored to your needs
+                                                Designed and developed custom modules for hotel management systems,
+                                                streamlining operations and enhancing the overall employee experience.
                                             </span>
                                         </li>
 
                                         <li class="flex space-x-3">
-                                            <svg class="flex-shrink-0 mt-0.5 w-5 h-5 text-gray-600"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round">
-                                                <polyline points="20 6 9 17 4 12" />
+                                            <svg class="flex-shrink-0 size-2" fill="#2563EB" version="1.1" id="Capa_1"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460.492 460.492"
+                                                xml:space="preserve">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                    stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <g>
+                                                        <g>
+                                                            <path
+                                                                d="M349.574,139.747c-6.592-3.469-12.279-6.464-16.118-8.871c-27.894-17.491-57.863-34.698-89.062-51.146 c-29.234-15.417-59.913-30.356-91.175-44.412c-8.1-3.639-15.879-8.221-24.115-13.065c-13.584-7.988-27.627-16.255-43.826-20.479 C70.406-2.099,58.331,0.427,50.356,8.798C39.723,19.962,39.103,38.09,39.893,54.345c1.333,27.121,1.655,54.857,1.97,81.684 c0.152,12.901,0.308,25.796,0.559,38.682c0.478,23.737,0.731,47.469,0.983,71.196c0.66,61.388,1.34,124.857,6,187.393 c0.155,2.087,0.571,4.144,1.274,6.251c1.912,12.213,11.243,20.941,22.625,20.941c3.057,0,6.178-0.625,9.265-1.844 c59.946-23.698,120.519-58.711,185.194-107.038c27.507-20.561,55.629-43.274,83.578-67.512c5.134-4.453,11.979-9.252,19.22-14.346 c19.348-13.568,41.274-28.959,48.348-49.538c2.727-7.949,3.926-20.416-5.905-34.652 C399.515,166.038,370.652,150.844,349.574,139.747z M359.323,208.936C294.025,268.96,200.035,348.73,97.914,396.875 c-3.422-62.194-3.948-125.334-4.445-186.544c-0.396-48.109-0.808-97.7-2.621-146.797 C193.397,106.686,285.672,156.661,359.323,208.936z">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
                                             </svg>
                                             <span class="text-gray-600">
-                                                Industry-leading & user-centric designs
+                                                Implemented secure user authentication and authorization systems for
+                                                systems, ensuring data privacy and compliance with industry regulations.
                                             </span>
                                         </li>
 
                                         <li class="flex space-x-3">
-                                            <svg class="flex-shrink-0 mt-0.5 w-5 h-5 text-gray-600"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round">
-                                                <polyline points="20 6 9 17 4 12" />
+                                            <svg class="flex-shrink-0 size-2" fill="#2563EB" version="1.1" id="Capa_1"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460.492 460.492"
+                                                xml:space="preserve">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                    stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <g>
+                                                        <g>
+                                                            <path
+                                                                d="M349.574,139.747c-6.592-3.469-12.279-6.464-16.118-8.871c-27.894-17.491-57.863-34.698-89.062-51.146 c-29.234-15.417-59.913-30.356-91.175-44.412c-8.1-3.639-15.879-8.221-24.115-13.065c-13.584-7.988-27.627-16.255-43.826-20.479 C70.406-2.099,58.331,0.427,50.356,8.798C39.723,19.962,39.103,38.09,39.893,54.345c1.333,27.121,1.655,54.857,1.97,81.684 c0.152,12.901,0.308,25.796,0.559,38.682c0.478,23.737,0.731,47.469,0.983,71.196c0.66,61.388,1.34,124.857,6,187.393 c0.155,2.087,0.571,4.144,1.274,6.251c1.912,12.213,11.243,20.941,22.625,20.941c3.057,0,6.178-0.625,9.265-1.844 c59.946-23.698,120.519-58.711,185.194-107.038c27.507-20.561,55.629-43.274,83.578-67.512c5.134-4.453,11.979-9.252,19.22-14.346 c19.348-13.568,41.274-28.959,48.348-49.538c2.727-7.949,3.926-20.416-5.905-34.652 C399.515,166.038,370.652,150.844,349.574,139.747z M359.323,208.936C294.025,268.96,200.035,348.73,97.914,396.875 c-3.422-62.194-3.948-125.334-4.445-186.544c-0.396-48.109-0.808-97.7-2.621-146.797 C193.397,106.686,285.672,156.661,359.323,208.936z">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
                                             </svg>
                                             <span class="text-gray-600">
-                                                Exceptional attention to detail
+                                                Integrated procurement systems with third-party vendor platforms,
+                                                automating purchasing processes and optimizing supply chain management.
                                             </span>
                                         </li>
 
                                         <li class="flex space-x-3">
-                                            <svg class="flex-shrink-0 mt-0.5 w-5 h-5 text-gray-600"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round">
-                                                <polyline points="20 6 9 17 4 12" />
+                                            <svg class="flex-shrink-0 size-2" fill="#2563EB" version="1.1" id="Capa_1"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460.492 460.492"
+                                                xml:space="preserve">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                    stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <g>
+                                                        <g>
+                                                            <path
+                                                                d="M349.574,139.747c-6.592-3.469-12.279-6.464-16.118-8.871c-27.894-17.491-57.863-34.698-89.062-51.146 c-29.234-15.417-59.913-30.356-91.175-44.412c-8.1-3.639-15.879-8.221-24.115-13.065c-13.584-7.988-27.627-16.255-43.826-20.479 C70.406-2.099,58.331,0.427,50.356,8.798C39.723,19.962,39.103,38.09,39.893,54.345c1.333,27.121,1.655,54.857,1.97,81.684 c0.152,12.901,0.308,25.796,0.559,38.682c0.478,23.737,0.731,47.469,0.983,71.196c0.66,61.388,1.34,124.857,6,187.393 c0.155,2.087,0.571,4.144,1.274,6.251c1.912,12.213,11.243,20.941,22.625,20.941c3.057,0,6.178-0.625,9.265-1.844 c59.946-23.698,120.519-58.711,185.194-107.038c27.507-20.561,55.629-43.274,83.578-67.512c5.134-4.453,11.979-9.252,19.22-14.346 c19.348-13.568,41.274-28.959,48.348-49.538c2.727-7.949,3.926-20.416-5.905-34.652 C399.515,166.038,370.652,150.844,349.574,139.747z M359.323,208.936C294.025,268.96,200.035,348.73,97.914,396.875 c-3.422-62.194-3.948-125.334-4.445-186.544c-0.396-48.109-0.808-97.7-2.621-146.797 C193.397,106.686,285.672,156.661,359.323,208.936z">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
                                             </svg>
                                             <span class="text-gray-600">
-                                                Continuous learning and sharing of best practices
+                                                Developed reporting and analytics modules for hotel management systems,
+                                                providing actionable insights for operational efficiency and
+                                                decision-making.
                                             </span>
                                         </li>
 
                                         <li class="flex space-x-3">
-                                            <svg class="flex-shrink-0 mt-0.5 w-5 h-5 text-gray-600"
-                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
-                                                stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                                stroke-linejoin="round">
-                                                <polyline points="20 6 9 17 4 12" />
+                                            <svg class="flex-shrink-0 size-2" fill="#2563EB" version="1.1" id="Capa_1"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460.492 460.492"
+                                                xml:space="preserve">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                    stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <g>
+                                                        <g>
+                                                            <path
+                                                                d="M349.574,139.747c-6.592-3.469-12.279-6.464-16.118-8.871c-27.894-17.491-57.863-34.698-89.062-51.146 c-29.234-15.417-59.913-30.356-91.175-44.412c-8.1-3.639-15.879-8.221-24.115-13.065c-13.584-7.988-27.627-16.255-43.826-20.479 C70.406-2.099,58.331,0.427,50.356,8.798C39.723,19.962,39.103,38.09,39.893,54.345c1.333,27.121,1.655,54.857,1.97,81.684 c0.152,12.901,0.308,25.796,0.559,38.682c0.478,23.737,0.731,47.469,0.983,71.196c0.66,61.388,1.34,124.857,6,187.393 c0.155,2.087,0.571,4.144,1.274,6.251c1.912,12.213,11.243,20.941,22.625,20.941c3.057,0,6.178-0.625,9.265-1.844 c59.946-23.698,120.519-58.711,185.194-107.038c27.507-20.561,55.629-43.274,83.578-67.512c5.134-4.453,11.979-9.252,19.22-14.346 c19.348-13.568,41.274-28.959,48.348-49.538c2.727-7.949,3.926-20.416-5.905-34.652 C399.515,166.038,370.652,150.844,349.574,139.747z M359.323,208.936C294.025,268.96,200.035,348.73,97.914,396.875 c-3.422-62.194-3.948-125.334-4.445-186.544c-0.396-48.109-0.808-97.7-2.621-146.797 C193.397,106.686,285.672,156.661,359.323,208.936z">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
                                             </svg>
                                             <span class="text-gray-600">
-                                                Transparent pricing with no hidden costs
+                                                Collaborated with domain experts to understand and implement
+                                                industry-specific features and functionalities in hotel, HR, and
+                                                procurement systems.
+                                            </span>
+                                        </li>
+
+                                        <li class="flex space-x-3">
+                                            <svg class="flex-shrink-0 size-2" fill="#2563EB" version="1.1" id="Capa_1"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460.492 460.492"
+                                                xml:space="preserve">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                    stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <g>
+                                                        <g>
+                                                            <path
+                                                                d="M349.574,139.747c-6.592-3.469-12.279-6.464-16.118-8.871c-27.894-17.491-57.863-34.698-89.062-51.146 c-29.234-15.417-59.913-30.356-91.175-44.412c-8.1-3.639-15.879-8.221-24.115-13.065c-13.584-7.988-27.627-16.255-43.826-20.479 C70.406-2.099,58.331,0.427,50.356,8.798C39.723,19.962,39.103,38.09,39.893,54.345c1.333,27.121,1.655,54.857,1.97,81.684 c0.152,12.901,0.308,25.796,0.559,38.682c0.478,23.737,0.731,47.469,0.983,71.196c0.66,61.388,1.34,124.857,6,187.393 c0.155,2.087,0.571,4.144,1.274,6.251c1.912,12.213,11.243,20.941,22.625,20.941c3.057,0,6.178-0.625,9.265-1.844 c59.946-23.698,120.519-58.711,185.194-107.038c27.507-20.561,55.629-43.274,83.578-67.512c5.134-4.453,11.979-9.252,19.22-14.346 c19.348-13.568,41.274-28.959,48.348-49.538c2.727-7.949,3.926-20.416-5.905-34.652 C399.515,166.038,370.652,150.844,349.574,139.747z M359.323,208.936C294.025,268.96,200.035,348.73,97.914,396.875 c-3.422-62.194-3.948-125.334-4.445-186.544c-0.396-48.109-0.808-97.7-2.621-146.797 C193.397,106.686,285.672,156.661,359.323,208.936z">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                            <span class="text-gray-600">
+                                                Implemented data encryption and secure data transfer protocols for
+                                                procurement systems to ensure the confidentiality and integrity of
+                                                sensitive procurement information.
                                             </span>
                                         </li>
                                     </ul>
                                 </div>
+                                <!-- End Superior -->
 
-                            </div>
-                            <!-- End Col -->
-
-                            <div class="relative">
-                                <!-- Card -->
-                                <div
-                                    class="flex flex-col bg-white border border-blue-200 rounded-xl shadow-lg p-4 sm:p-6 lg:p-10">
-                                    <h2 class="text-xl font-semibold text-blue-600">
-                                        Fill in the form
+                                <!-- Utest -->
+                                <div id="explanation2" class="explanation hidden">
+                                    <h2 class="text-xl text-base text-gray-600 md:text-3xl md:leading-tight">Tester @
+                                        <span class="font-bold text-blue-600">Utest</span>
                                     </h2>
 
-                                    <form>
-                                        <div class="mt-6 grid gap-4 lg:gap-6">
+                                    <p class="uppercase text-base font-medium text-blue-500 mb-2">January 2019 -
+                                        May 2023</p>
+
+                                    <ul class="mt-2 space-y-4 p-0 sm:p-5">
+                                        <li class="flex space-x-3">
+                                            <svg class="flex-shrink-0 size-2" fill="#2563EB" version="1.1" id="Capa_1"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460.492 460.492"
+                                                xml:space="preserve">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                    stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <g>
+                                                        <g>
+                                                            <path
+                                                                d="M349.574,139.747c-6.592-3.469-12.279-6.464-16.118-8.871c-27.894-17.491-57.863-34.698-89.062-51.146 c-29.234-15.417-59.913-30.356-91.175-44.412c-8.1-3.639-15.879-8.221-24.115-13.065c-13.584-7.988-27.627-16.255-43.826-20.479 C70.406-2.099,58.331,0.427,50.356,8.798C39.723,19.962,39.103,38.09,39.893,54.345c1.333,27.121,1.655,54.857,1.97,81.684 c0.152,12.901,0.308,25.796,0.559,38.682c0.478,23.737,0.731,47.469,0.983,71.196c0.66,61.388,1.34,124.857,6,187.393 c0.155,2.087,0.571,4.144,1.274,6.251c1.912,12.213,11.243,20.941,22.625,20.941c3.057,0,6.178-0.625,9.265-1.844 c59.946-23.698,120.519-58.711,185.194-107.038c27.507-20.561,55.629-43.274,83.578-67.512c5.134-4.453,11.979-9.252,19.22-14.346 c19.348-13.568,41.274-28.959,48.348-49.538c2.727-7.949,3.926-20.416-5.905-34.652 C399.515,166.038,370.652,150.844,349.574,139.747z M359.323,208.936C294.025,268.96,200.035,348.73,97.914,396.875 c-3.422-62.194-3.948-125.334-4.445-186.544c-0.396-48.109-0.808-97.7-2.621-146.797 C193.397,106.686,285.672,156.661,359.323,208.936z">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                            <span class="text-gray-600">
+                                                Developed and executed comprehensive test plans for various software
+                                                applications, resulting in a significant reduction in post-release
+                                                defects and a substantial increase in customer satisfaction.
+                                            </span>
+                                        </li>
+
+                                        <li class="flex space-x-3">
+                                            <svg class="flex-shrink-0 size-2" fill="#2563EB" version="1.1" id="Capa_1"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460.492 460.492"
+                                                xml:space="preserve">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                    stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <g>
+                                                        <g>
+                                                            <path
+                                                                d="M349.574,139.747c-6.592-3.469-12.279-6.464-16.118-8.871c-27.894-17.491-57.863-34.698-89.062-51.146 c-29.234-15.417-59.913-30.356-91.175-44.412c-8.1-3.639-15.879-8.221-24.115-13.065c-13.584-7.988-27.627-16.255-43.826-20.479 C70.406-2.099,58.331,0.427,50.356,8.798C39.723,19.962,39.103,38.09,39.893,54.345c1.333,27.121,1.655,54.857,1.97,81.684 c0.152,12.901,0.308,25.796,0.559,38.682c0.478,23.737,0.731,47.469,0.983,71.196c0.66,61.388,1.34,124.857,6,187.393 c0.155,2.087,0.571,4.144,1.274,6.251c1.912,12.213,11.243,20.941,22.625,20.941c3.057,0,6.178-0.625,9.265-1.844 c59.946-23.698,120.519-58.711,185.194-107.038c27.507-20.561,55.629-43.274,83.578-67.512c5.134-4.453,11.979-9.252,19.22-14.346 c19.348-13.568,41.274-28.959,48.348-49.538c2.727-7.949,3.926-20.416-5.905-34.652 C399.515,166.038,370.652,150.844,349.574,139.747z M359.323,208.936C294.025,268.96,200.035,348.73,97.914,396.875 c-3.422-62.194-3.948-125.334-4.445-186.544c-0.396-48.109-0.808-97.7-2.621-146.797 C193.397,106.686,285.672,156.661,359.323,208.936z">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                            <span class="text-gray-600">
+                                                Collaborated effectively with cross-functional teams to identify and
+                                                resolve critical defects, resulting in improved overall product quality
+                                                and reduced post-release issues.
+                                            </span>
+                                        </li>
+
+                                        <li class="flex space-x-3">
+                                            <svg class="flex-shrink-0 size-2" fill="#2563EB" version="1.1" id="Capa_1"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460.492 460.492"
+                                                xml:space="preserve">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                    stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <g>
+                                                        <g>
+                                                            <path
+                                                                d="M349.574,139.747c-6.592-3.469-12.279-6.464-16.118-8.871c-27.894-17.491-57.863-34.698-89.062-51.146 c-29.234-15.417-59.913-30.356-91.175-44.412c-8.1-3.639-15.879-8.221-24.115-13.065c-13.584-7.988-27.627-16.255-43.826-20.479 C70.406-2.099,58.331,0.427,50.356,8.798C39.723,19.962,39.103,38.09,39.893,54.345c1.333,27.121,1.655,54.857,1.97,81.684 c0.152,12.901,0.308,25.796,0.559,38.682c0.478,23.737,0.731,47.469,0.983,71.196c0.66,61.388,1.34,124.857,6,187.393 c0.155,2.087,0.571,4.144,1.274,6.251c1.912,12.213,11.243,20.941,22.625,20.941c3.057,0,6.178-0.625,9.265-1.844 c59.946-23.698,120.519-58.711,185.194-107.038c27.507-20.561,55.629-43.274,83.578-67.512c5.134-4.453,11.979-9.252,19.22-14.346 c19.348-13.568,41.274-28.959,48.348-49.538c2.727-7.949,3.926-20.416-5.905-34.652 C399.515,166.038,370.652,150.844,349.574,139.747z M359.323,208.936C294.025,268.96,200.035,348.73,97.914,396.875 c-3.422-62.194-3.948-125.334-4.445-186.544c-0.396-48.109-0.808-97.7-2.621-146.797 C193.397,106.686,285.672,156.661,359.323,208.936z">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                            <span class="text-gray-600">
+                                                Implemented automated testing frameworks and tools, leading to a
+                                                substantial increase in testing efficiency and a notable reduction in
+                                                testing time.
+                                            </span>
+                                        </li>
+
+                                        <li class="flex space-x-3">
+                                            <svg class="flex-shrink-0 size-2" fill="#2563EB" version="1.1" id="Capa_1"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460.492 460.492"
+                                                xml:space="preserve">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                    stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <g>
+                                                        <g>
+                                                            <path
+                                                                d="M349.574,139.747c-6.592-3.469-12.279-6.464-16.118-8.871c-27.894-17.491-57.863-34.698-89.062-51.146 c-29.234-15.417-59.913-30.356-91.175-44.412c-8.1-3.639-15.879-8.221-24.115-13.065c-13.584-7.988-27.627-16.255-43.826-20.479 C70.406-2.099,58.331,0.427,50.356,8.798C39.723,19.962,39.103,38.09,39.893,54.345c1.333,27.121,1.655,54.857,1.97,81.684 c0.152,12.901,0.308,25.796,0.559,38.682c0.478,23.737,0.731,47.469,0.983,71.196c0.66,61.388,1.34,124.857,6,187.393 c0.155,2.087,0.571,4.144,1.274,6.251c1.912,12.213,11.243,20.941,22.625,20.941c3.057,0,6.178-0.625,9.265-1.844 c59.946-23.698,120.519-58.711,185.194-107.038c27.507-20.561,55.629-43.274,83.578-67.512c5.134-4.453,11.979-9.252,19.22-14.346 c19.348-13.568,41.274-28.959,48.348-49.538c2.727-7.949,3.926-20.416-5.905-34.652 C399.515,166.038,370.652,150.844,349.574,139.747z M359.323,208.936C294.025,268.96,200.035,348.73,97.914,396.875 c-3.422-62.194-3.948-125.334-4.445-186.544c-0.396-48.109-0.808-97.7-2.621-146.797 C193.397,106.686,285.672,156.661,359.323,208.936z">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                            <span class="text-gray-600">
+                                                Conducted stress, load, and performance testing to ensure the
+                                                scalability and reliability of applications.
+                                            </span>
+                                        </li>
+
+                                        <li class="flex space-x-3">
+                                            <svg class="flex-shrink-0 size-2" fill="#2563EB" version="1.1" id="Capa_1"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460.492 460.492"
+                                                xml:space="preserve">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                    stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <g>
+                                                        <g>
+                                                            <path
+                                                                d="M349.574,139.747c-6.592-3.469-12.279-6.464-16.118-8.871c-27.894-17.491-57.863-34.698-89.062-51.146 c-29.234-15.417-59.913-30.356-91.175-44.412c-8.1-3.639-15.879-8.221-24.115-13.065c-13.584-7.988-27.627-16.255-43.826-20.479 C70.406-2.099,58.331,0.427,50.356,8.798C39.723,19.962,39.103,38.09,39.893,54.345c1.333,27.121,1.655,54.857,1.97,81.684 c0.152,12.901,0.308,25.796,0.559,38.682c0.478,23.737,0.731,47.469,0.983,71.196c0.66,61.388,1.34,124.857,6,187.393 c0.155,2.087,0.571,4.144,1.274,6.251c1.912,12.213,11.243,20.941,22.625,20.941c3.057,0,6.178-0.625,9.265-1.844 c59.946-23.698,120.519-58.711,185.194-107.038c27.507-20.561,55.629-43.274,83.578-67.512c5.134-4.453,11.979-9.252,19.22-14.346 c19.348-13.568,41.274-28.959,48.348-49.538c2.727-7.949,3.926-20.416-5.905-34.652 C399.515,166.038,370.652,150.844,349.574,139.747z M359.323,208.936C294.025,268.96,200.035,348.73,97.914,396.875 c-3.422-62.194-3.948-125.334-4.445-186.544c-0.396-48.109-0.808-97.7-2.621-146.797 C193.397,106.686,285.672,156.661,359.323,208.936z">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                            <span class="text-gray-600">
+                                                Achieved a high defect detection rate, a notable improvement in
+                                                application response time, and a substantial reduction in post-release
+                                                defects.
+                                            </span>
+                                        </li>
+
+                                        <li class="flex space-x-3">
+                                            <svg class="flex-shrink-0 size-2" fill="#2563EB" version="1.1" id="Capa_1"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460.492 460.492"
+                                                xml:space="preserve">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                    stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <g>
+                                                        <g>
+                                                            <path
+                                                                d="M349.574,139.747c-6.592-3.469-12.279-6.464-16.118-8.871c-27.894-17.491-57.863-34.698-89.062-51.146 c-29.234-15.417-59.913-30.356-91.175-44.412c-8.1-3.639-15.879-8.221-24.115-13.065c-13.584-7.988-27.627-16.255-43.826-20.479 C70.406-2.099,58.331,0.427,50.356,8.798C39.723,19.962,39.103,38.09,39.893,54.345c1.333,27.121,1.655,54.857,1.97,81.684 c0.152,12.901,0.308,25.796,0.559,38.682c0.478,23.737,0.731,47.469,0.983,71.196c0.66,61.388,1.34,124.857,6,187.393 c0.155,2.087,0.571,4.144,1.274,6.251c1.912,12.213,11.243,20.941,22.625,20.941c3.057,0,6.178-0.625,9.265-1.844 c59.946-23.698,120.519-58.711,185.194-107.038c27.507-20.561,55.629-43.274,83.578-67.512c5.134-4.453,11.979-9.252,19.22-14.346 c19.348-13.568,41.274-28.959,48.348-49.538c2.727-7.949,3.926-20.416-5.905-34.652 C399.515,166.038,370.652,150.844,349.574,139.747z M359.323,208.936C294.025,268.96,200.035,348.73,97.914,396.875 c-3.422-62.194-3.948-125.334-4.445-186.544c-0.396-48.109-0.808-97.7-2.621-146.797 C193.397,106.686,285.672,156.661,359.323,208.936z">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                            <span class="text-gray-600">
+                                                Contributed to open-source projects, demonstrating a commitment to the
+                                                testing community and showcasing technical skills and expertise .
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- End Utest -->
+
+                                <!-- Techducate -->
+                                <div id="explanation3" class="explanation hidden">
+                                    <h2 class="text-xl text-base text-gray-600 md:text-3xl md:leading-tight">Software
+                                        Developer Intern @ <span class="font-bold text-blue-600">Techducate
+                                            Africa</span></h2>
+                                    <p class="uppercase text-base font-medium text-blue-500 mb-2">February 2022 -
+                                        May 2022</p>
+
+                                    <ul class="mt-2 space-y-4 p-0 sm:p-5">
+                                        <li class="flex space-x-3">
+                                            <svg class="flex-shrink-0 size-2" fill="#2563EB" version="1.1" id="Capa_1"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460.492 460.492"
+                                                xml:space="preserve">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                    stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <g>
+                                                        <g>
+                                                            <path
+                                                                d="M349.574,139.747c-6.592-3.469-12.279-6.464-16.118-8.871c-27.894-17.491-57.863-34.698-89.062-51.146 c-29.234-15.417-59.913-30.356-91.175-44.412c-8.1-3.639-15.879-8.221-24.115-13.065c-13.584-7.988-27.627-16.255-43.826-20.479 C70.406-2.099,58.331,0.427,50.356,8.798C39.723,19.962,39.103,38.09,39.893,54.345c1.333,27.121,1.655,54.857,1.97,81.684 c0.152,12.901,0.308,25.796,0.559,38.682c0.478,23.737,0.731,47.469,0.983,71.196c0.66,61.388,1.34,124.857,6,187.393 c0.155,2.087,0.571,4.144,1.274,6.251c1.912,12.213,11.243,20.941,22.625,20.941c3.057,0,6.178-0.625,9.265-1.844 c59.946-23.698,120.519-58.711,185.194-107.038c27.507-20.561,55.629-43.274,83.578-67.512c5.134-4.453,11.979-9.252,19.22-14.346 c19.348-13.568,41.274-28.959,48.348-49.538c2.727-7.949,3.926-20.416-5.905-34.652 C399.515,166.038,370.652,150.844,349.574,139.747z M359.323,208.936C294.025,268.96,200.035,348.73,97.914,396.875 c-3.422-62.194-3.948-125.334-4.445-186.544c-0.396-48.109-0.808-97.7-2.621-146.797 C193.397,106.686,285.672,156.661,359.323,208.936z">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                            <span class="text-gray-600">
+                                                Designed and implemented a modern, user-friendly interface for a large
+                                                enterprise product, resulting in increased user engagement and positive
+                                                feedback.
+                                            </span>
+                                        </li>
+
+                                        <li class="flex space-x-3">
+                                            <svg class="flex-shrink-0 size-2" fill="#2563EB" version="1.1" id="Capa_1"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460.492 460.492"
+                                                xml:space="preserve">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                    stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <g>
+                                                        <g>
+                                                            <path
+                                                                d="M349.574,139.747c-6.592-3.469-12.279-6.464-16.118-8.871c-27.894-17.491-57.863-34.698-89.062-51.146 c-29.234-15.417-59.913-30.356-91.175-44.412c-8.1-3.639-15.879-8.221-24.115-13.065c-13.584-7.988-27.627-16.255-43.826-20.479 C70.406-2.099,58.331,0.427,50.356,8.798C39.723,19.962,39.103,38.09,39.893,54.345c1.333,27.121,1.655,54.857,1.97,81.684 c0.152,12.901,0.308,25.796,0.559,38.682c0.478,23.737,0.731,47.469,0.983,71.196c0.66,61.388,1.34,124.857,6,187.393 c0.155,2.087,0.571,4.144,1.274,6.251c1.912,12.213,11.243,20.941,22.625,20.941c3.057,0,6.178-0.625,9.265-1.844 c59.946-23.698,120.519-58.711,185.194-107.038c27.507-20.561,55.629-43.274,83.578-67.512c5.134-4.453,11.979-9.252,19.22-14.346 c19.348-13.568,41.274-28.959,48.348-49.538c2.727-7.949,3.926-20.416-5.905-34.652 C399.515,166.038,370.652,150.844,349.574,139.747z M359.323,208.936C294.025,268.96,200.035,348.73,97.914,396.875 c-3.422-62.194-3.948-125.334-4.445-186.544c-0.396-48.109-0.808-97.7-2.621-146.797 C193.397,106.686,285.672,156.661,359.323,208.936z">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                            <span class="text-gray-600">
+                                                Developed multiple web applications using HTML, CSS, JavaScript, and
+                                                Laravel programming languages, showcasing a diverse skill set and
+                                                expertise in modern web development.
+                                            </span>
+                                        </li>
+
+                                        <li class="flex space-x-3">
+                                            <svg class="flex-shrink-0 size-2" fill="#2563EB" version="1.1" id="Capa_1"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460.492 460.492"
+                                                xml:space="preserve">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                    stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <g>
+                                                        <g>
+                                                            <path
+                                                                d="M349.574,139.747c-6.592-3.469-12.279-6.464-16.118-8.871c-27.894-17.491-57.863-34.698-89.062-51.146 c-29.234-15.417-59.913-30.356-91.175-44.412c-8.1-3.639-15.879-8.221-24.115-13.065c-13.584-7.988-27.627-16.255-43.826-20.479 C70.406-2.099,58.331,0.427,50.356,8.798C39.723,19.962,39.103,38.09,39.893,54.345c1.333,27.121,1.655,54.857,1.97,81.684 c0.152,12.901,0.308,25.796,0.559,38.682c0.478,23.737,0.731,47.469,0.983,71.196c0.66,61.388,1.34,124.857,6,187.393 c0.155,2.087,0.571,4.144,1.274,6.251c1.912,12.213,11.243,20.941,22.625,20.941c3.057,0,6.178-0.625,9.265-1.844 c59.946-23.698,120.519-58.711,185.194-107.038c27.507-20.561,55.629-43.274,83.578-67.512c5.134-4.453,11.979-9.252,19.22-14.346 c19.348-13.568,41.274-28.959,48.348-49.538c2.727-7.949,3.926-20.416-5.905-34.652 C399.515,166.038,370.652,150.844,349.574,139.747z M359.323,208.936C294.025,268.96,200.035,348.73,97.914,396.875 c-3.422-62.194-3.948-125.334-4.445-186.544c-0.396-48.109-0.808-97.7-2.621-146.797 C193.397,106.686,285.672,156.661,359.323,208.936z">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                            <span class="text-gray-600">
+                                                Maintained software solutions in accordance with coding standards and
+                                                best practices, ensuring high-quality and maintainable code.
+                                            </span>
+                                        </li>
+
+                                        <li class="flex space-x-3">
+                                            <svg class="flex-shrink-0 size-2" fill="#2563EB" version="1.1" id="Capa_1"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460.492 460.492"
+                                                xml:space="preserve">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                    stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <g>
+                                                        <g>
+                                                            <path
+                                                                d="M349.574,139.747c-6.592-3.469-12.279-6.464-16.118-8.871c-27.894-17.491-57.863-34.698-89.062-51.146 c-29.234-15.417-59.913-30.356-91.175-44.412c-8.1-3.639-15.879-8.221-24.115-13.065c-13.584-7.988-27.627-16.255-43.826-20.479 C70.406-2.099,58.331,0.427,50.356,8.798C39.723,19.962,39.103,38.09,39.893,54.345c1.333,27.121,1.655,54.857,1.97,81.684 c0.152,12.901,0.308,25.796,0.559,38.682c0.478,23.737,0.731,47.469,0.983,71.196c0.66,61.388,1.34,124.857,6,187.393 c0.155,2.087,0.571,4.144,1.274,6.251c1.912,12.213,11.243,20.941,22.625,20.941c3.057,0,6.178-0.625,9.265-1.844 c59.946-23.698,120.519-58.711,185.194-107.038c27.507-20.561,55.629-43.274,83.578-67.512c5.134-4.453,11.979-9.252,19.22-14.346 c19.348-13.568,41.274-28.959,48.348-49.538c2.727-7.949,3.926-20.416-5.905-34.652 C399.515,166.038,370.652,150.844,349.574,139.747z M359.323,208.936C294.025,268.96,200.035,348.73,97.914,396.875 c-3.422-62.194-3.948-125.334-4.445-186.544c-0.396-48.109-0.808-97.7-2.621-146.797 C193.397,106.686,285.672,156.661,359.323,208.936z">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                            <span class="text-gray-600">
+                                                Implemented and maintained unit tests to validate the functionality and
+                                                quality of code, resulting in a notable reduction in critical defects
+                                                and improved overall software stability.
+                                            </span>
+                                        </li>
+
+                                        <li class="flex space-x-3">
+                                            <svg class="flex-shrink-0 size-2" fill="#2563EB" version="1.1" id="Capa_1"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460.492 460.492"
+                                                xml:space="preserve">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                    stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <g>
+                                                        <g>
+                                                            <path
+                                                                d="M349.574,139.747c-6.592-3.469-12.279-6.464-16.118-8.871c-27.894-17.491-57.863-34.698-89.062-51.146 c-29.234-15.417-59.913-30.356-91.175-44.412c-8.1-3.639-15.879-8.221-24.115-13.065c-13.584-7.988-27.627-16.255-43.826-20.479 C70.406-2.099,58.331,0.427,50.356,8.798C39.723,19.962,39.103,38.09,39.893,54.345c1.333,27.121,1.655,54.857,1.97,81.684 c0.152,12.901,0.308,25.796,0.559,38.682c0.478,23.737,0.731,47.469,0.983,71.196c0.66,61.388,1.34,124.857,6,187.393 c0.155,2.087,0.571,4.144,1.274,6.251c1.912,12.213,11.243,20.941,22.625,20.941c3.057,0,6.178-0.625,9.265-1.844 c59.946-23.698,120.519-58.711,185.194-107.038c27.507-20.561,55.629-43.274,83.578-67.512c5.134-4.453,11.979-9.252,19.22-14.346 c19.348-13.568,41.274-28.959,48.348-49.538c2.727-7.949,3.926-20.416-5.905-34.652 C399.515,166.038,370.652,150.844,349.574,139.747z M359.323,208.936C294.025,268.96,200.035,348.73,97.914,396.875 c-3.422-62.194-3.948-125.334-4.445-186.544c-0.396-48.109-0.808-97.7-2.621-146.797 C193.397,106.686,285.672,156.661,359.323,208.936z">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                            <span class="text-gray-600">
+                                                Engineered software solutions that significantly improved system
+                                                performance and reliability, leading to enhanced user experience and
+                                                increased system uptime.
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- End Techducate -->
+
+                                <!-- IEN Africa -->
+                                <div id="explanation4" class="explanation hidden">
+                                    <h2 class="text-xl text-base text-gray-600 md:text-3xl md:leading-tight">Software
+                                        Developer Intern @ <span class="font-bold text-blue-600">IEN Africa</span></h2>
+
+                                    <p class="uppercase text-base font-medium text-blue-500 mb-2">February 2021 -
+                                        April 2021</p>
+
+                                    <ul class="mt-2 space-y-4 p-0 sm:p-5">
+                                        <li class="flex space-x-3">
+                                            <svg class="flex-shrink-0 size-2" fill="#2563EB" version="1.1" id="Capa_1"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460.492 460.492"
+                                                xml:space="preserve">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                    stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <g>
+                                                        <g>
+                                                            <path
+                                                                d="M349.574,139.747c-6.592-3.469-12.279-6.464-16.118-8.871c-27.894-17.491-57.863-34.698-89.062-51.146 c-29.234-15.417-59.913-30.356-91.175-44.412c-8.1-3.639-15.879-8.221-24.115-13.065c-13.584-7.988-27.627-16.255-43.826-20.479 C70.406-2.099,58.331,0.427,50.356,8.798C39.723,19.962,39.103,38.09,39.893,54.345c1.333,27.121,1.655,54.857,1.97,81.684 c0.152,12.901,0.308,25.796,0.559,38.682c0.478,23.737,0.731,47.469,0.983,71.196c0.66,61.388,1.34,124.857,6,187.393 c0.155,2.087,0.571,4.144,1.274,6.251c1.912,12.213,11.243,20.941,22.625,20.941c3.057,0,6.178-0.625,9.265-1.844 c59.946-23.698,120.519-58.711,185.194-107.038c27.507-20.561,55.629-43.274,83.578-67.512c5.134-4.453,11.979-9.252,19.22-14.346 c19.348-13.568,41.274-28.959,48.348-49.538c2.727-7.949,3.926-20.416-5.905-34.652 C399.515,166.038,370.652,150.844,349.574,139.747z M359.323,208.936C294.025,268.96,200.035,348.73,97.914,396.875 c-3.422-62.194-3.948-125.334-4.445-186.544c-0.396-48.109-0.808-97.7-2.621-146.797 C193.397,106.686,285.672,156.661,359.323,208.936z">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                            <span class="text-gray-600">
+                                                Collaborated effectively with other developers and stakeholders to
+                                                ensure the successful completion of projects within specified timelines,
+                                                resulting in the delivery of high-quality software solutions.
+                                            </span>
+                                        </li>
+
+                                        <li class="flex space-x-3">
+                                            <svg class="flex-shrink-0 size-2" fill="#2563EB" version="1.1" id="Capa_1"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460.492 460.492"
+                                                xml:space="preserve">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                    stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <g>
+                                                        <g>
+                                                            <path
+                                                                d="M349.574,139.747c-6.592-3.469-12.279-6.464-16.118-8.871c-27.894-17.491-57.863-34.698-89.062-51.146 c-29.234-15.417-59.913-30.356-91.175-44.412c-8.1-3.639-15.879-8.221-24.115-13.065c-13.584-7.988-27.627-16.255-43.826-20.479 C70.406-2.099,58.331,0.427,50.356,8.798C39.723,19.962,39.103,38.09,39.893,54.345c1.333,27.121,1.655,54.857,1.97,81.684 c0.152,12.901,0.308,25.796,0.559,38.682c0.478,23.737,0.731,47.469,0.983,71.196c0.66,61.388,1.34,124.857,6,187.393 c0.155,2.087,0.571,4.144,1.274,6.251c1.912,12.213,11.243,20.941,22.625,20.941c3.057,0,6.178-0.625,9.265-1.844 c59.946-23.698,120.519-58.711,185.194-107.038c27.507-20.561,55.629-43.274,83.578-67.512c5.134-4.453,11.979-9.252,19.22-14.346 c19.348-13.568,41.274-28.959,48.348-49.538c2.727-7.949,3.926-20.416-5.905-34.652 C399.515,166.038,370.652,150.844,349.574,139.747z M359.323,208.936C294.025,268.96,200.035,348.73,97.914,396.875 c-3.422-62.194-3.948-125.334-4.445-186.544c-0.396-48.109-0.808-97.7-2.621-146.797 C193.397,106.686,285.672,156.661,359.323,208.936z">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                            <span class="text-gray-600">
+                                                Assisted in debugging and troubleshooting of existing applications,
+                                                leading to the identification and resolution of critical defects and a
+                                                notable improvement in software performance.
+                                            </span>
+                                        </li>
+
+                                        <li class="flex space-x-3">
+                                            <svg class="flex-shrink-0 size-2" fill="#2563EB" version="1.1" id="Capa_1"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460.492 460.492"
+                                                xml:space="preserve">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                    stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <g>
+                                                        <g>
+                                                            <path
+                                                                d="M349.574,139.747c-6.592-3.469-12.279-6.464-16.118-8.871c-27.894-17.491-57.863-34.698-89.062-51.146 c-29.234-15.417-59.913-30.356-91.175-44.412c-8.1-3.639-15.879-8.221-24.115-13.065c-13.584-7.988-27.627-16.255-43.826-20.479 C70.406-2.099,58.331,0.427,50.356,8.798C39.723,19.962,39.103,38.09,39.893,54.345c1.333,27.121,1.655,54.857,1.97,81.684 c0.152,12.901,0.308,25.796,0.559,38.682c0.478,23.737,0.731,47.469,0.983,71.196c0.66,61.388,1.34,124.857,6,187.393 c0.155,2.087,0.571,4.144,1.274,6.251c1.912,12.213,11.243,20.941,22.625,20.941c3.057,0,6.178-0.625,9.265-1.844 c59.946-23.698,120.519-58.711,185.194-107.038c27.507-20.561,55.629-43.274,83.578-67.512c5.134-4.453,11.979-9.252,19.22-14.346 c19.348-13.568,41.274-28.959,48.348-49.538c2.727-7.949,3.926-20.416-5.905-34.652 C399.515,166.038,370.652,150.844,349.574,139.747z M359.323,208.936C294.025,268.96,200.035,348.73,97.914,396.875 c-3.422-62.194-3.948-125.334-4.445-186.544c-0.396-48.109-0.808-97.7-2.621-146.797 C193.397,106.686,285.672,156.661,359.323,208.936z">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                            <span class="text-gray-600">
+                                                Created and implemented software solutions that complied with industry
+                                                standards, ensuring the development of secure, scalable, and
+                                                maintainable applications.
+                                            </span>
+                                        </li>
+
+                                        <li class="flex space-x-3">
+                                            <svg class="flex-shrink-0 size-2" fill="#2563EB" version="1.1" id="Capa_1"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460.492 460.492"
+                                                xml:space="preserve">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                    stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <g>
+                                                        <g>
+                                                            <path
+                                                                d="M349.574,139.747c-6.592-3.469-12.279-6.464-16.118-8.871c-27.894-17.491-57.863-34.698-89.062-51.146 c-29.234-15.417-59.913-30.356-91.175-44.412c-8.1-3.639-15.879-8.221-24.115-13.065c-13.584-7.988-27.627-16.255-43.826-20.479 C70.406-2.099,58.331,0.427,50.356,8.798C39.723,19.962,39.103,38.09,39.893,54.345c1.333,27.121,1.655,54.857,1.97,81.684 c0.152,12.901,0.308,25.796,0.559,38.682c0.478,23.737,0.731,47.469,0.983,71.196c0.66,61.388,1.34,124.857,6,187.393 c0.155,2.087,0.571,4.144,1.274,6.251c1.912,12.213,11.243,20.941,22.625,20.941c3.057,0,6.178-0.625,9.265-1.844 c59.946-23.698,120.519-58.711,185.194-107.038c27.507-20.561,55.629-43.274,83.578-67.512c5.134-4.453,11.979-9.252,19.22-14.346 c19.348-13.568,41.274-28.959,48.348-49.538c2.727-7.949,3.926-20.416-5.905-34.652 C399.515,166.038,370.652,150.844,349.574,139.747z M359.323,208.936C294.025,268.96,200.035,348.73,97.914,396.875 c-3.422-62.194-3.948-125.334-4.445-186.544c-0.396-48.109-0.808-97.7-2.621-146.797 C193.397,106.686,285.672,156.661,359.323,208.936z">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                            <span class="text-gray-600">
+                                                Developed REST APIs and web applications using modern technologies,
+                                                showcasing expertise in contemporary web development practices and
+                                                contributing to the creation of robust and efficient software solutions.
+                                            </span>
+                                        </li>
+
+                                        <li class="flex space-x-3">
+                                            <svg class="flex-shrink-0 size-2" fill="#2563EB" version="1.1" id="Capa_1"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460.492 460.492"
+                                                xml:space="preserve">
+                                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                    stroke-linejoin="round"></g>
+                                                <g id="SVGRepo_iconCarrier">
+                                                    <g>
+                                                        <g>
+                                                            <path
+                                                                d="M349.574,139.747c-6.592-3.469-12.279-6.464-16.118-8.871c-27.894-17.491-57.863-34.698-89.062-51.146 c-29.234-15.417-59.913-30.356-91.175-44.412c-8.1-3.639-15.879-8.221-24.115-13.065c-13.584-7.988-27.627-16.255-43.826-20.479 C70.406-2.099,58.331,0.427,50.356,8.798C39.723,19.962,39.103,38.09,39.893,54.345c1.333,27.121,1.655,54.857,1.97,81.684 c0.152,12.901,0.308,25.796,0.559,38.682c0.478,23.737,0.731,47.469,0.983,71.196c0.66,61.388,1.34,124.857,6,187.393 c0.155,2.087,0.571,4.144,1.274,6.251c1.912,12.213,11.243,20.941,22.625,20.941c3.057,0,6.178-0.625,9.265-1.844 c59.946-23.698,120.519-58.711,185.194-107.038c27.507-20.561,55.629-43.274,83.578-67.512c5.134-4.453,11.979-9.252,19.22-14.346 c19.348-13.568,41.274-28.959,48.348-49.538c2.727-7.949,3.926-20.416-5.905-34.652 C399.515,166.038,370.652,150.844,349.574,139.747z M359.323,208.936C294.025,268.96,200.035,348.73,97.914,396.875 c-3.422-62.194-3.948-125.334-4.445-186.544c-0.396-48.109-0.808-97.7-2.621-146.797 C193.397,106.686,285.672,156.661,359.323,208.936z">
+                                                            </path>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                            <span class="text-gray-600">
+                                                Demonstrated strong teamwork and communication skills to effectively
+                                                integrate feedback and ensure the alignment of software solutions with
+                                                stakeholder requirements.
+                                            </span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- End IEN Africa -->
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- End Experience -->
 
 
-                                            <!-- Grid -->
-                                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
-                                                <div>
-                                                    <label for="hs-name-hire-me"
-                                                        class="block mb-2 text-sm text-gray-700 font-medium">
-                                                        Name</label>
-                                                    <input type="text" id="hs-name-hire-me" name="hs-name-hire-me"
-                                                        class="appearance-none border border-blue-200 rounded-lg w-full py-3 px-4 text-sm text-gray-700 leading-tight focus:outline-none focus:border-blue-600 focus:ring-blue-500">
-                                                </div>
+                    <!-- Get in contact -->
+                    <div id="contact" class="px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+                        <!-- Title -->
+                        <div class="max-w-2xl mx-auto text-center mb-10 lg:mb-14">
+                            <h2 class="text-2xl font-bold text-blue-600 md:text-4xl md:leading-tight">/ get in contact
+                            </h2>
+                            <p class="mt-1 text-gray-600">Contact me</p>
+                        </div>
+                        <!-- End Title -->
 
-                                                <div>
-                                                    <label for="hs-email-hire-me"
-                                                        class="block mb-2 text-sm text-gray-700 font-medium">
-                                                        Email</label>
-                                                    <input type="email" id="hs-email-hire-me" name="hs-email-hire-me"
-                                                        class="appearance-none border border-blue-200 rounded-lg w-full py-3 px-4 text-sm text-gray-700 leading-tight focus:outline-none focus:border-blue-600 focus:ring-blue-500">
-                                                </div>
-                                            </div>
-                                            <!-- End Grid -->
+                        <!-- Hire Me -->
+                        <div class="px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+                            <!-- Grid -->
+                            <div class="grid md:grid-cols-2 items-center gap-12">
+                                <div>
+                                    <h1
+                                        class="text-3xl my-4 font-bold text-blue-600 sm:text-4xl lg:text-5xl lg:leading-tight">
+                                        Hire Me__________
+                                    </h1>
+                                    <p class="mt-1 my-4 md:text-lg text-gray-800">
+                                        I help brands and platforms turn big ideas into beautiful digital products and
+                                        experiences.
+                                    </p>
 
-                                            <!-- Grid -->
-                                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
-                                                <div>
-                                                    <label for="hs-company-name-hire-me"
-                                                        class="block mb-2 text-sm text-gray-700 font-medium">Company
-                                                        Name</label>
-                                                    <input type="text" id="hs-company-name-hire-me"
-                                                        name="hs-company-name-hire-me"
-                                                        class="appearance-none border border-blue-200 rounded-lg w-full py-3 px-4 text-sm text-gray-700 leading-tight focus:outline-none focus:border-blue-600 focus:ring-blue-500">
-                                                </div>
+                                    <p class="mt-1 text-base text-gray-500">
+                                        Are you looking to bring your innovative idea to life? I specialize in
+                                        transforming
+                                        concepts into fully functional and visually stunning digital products. With a
+                                        focus
+                                        on both design and development, I ensure a seamless and engaging user
+                                        experience.
+                                    </p>
 
-                                                <div>
-                                                    <label for="hs-company-website-hire-me"
-                                                        class="block mb-2 text-sm text-gray-700 font-medium">Company
-                                                        Website</label>
-                                                    <input type="text" id="hs-company-website-hire-me"
-                                                        name="hs-company-website-hire-me"
-                                                        class="appearance-none border border-blue-200 rounded-lg w-full py-3 px-4 text-sm text-gray-700 leading-tight focus:outline-none focus:border-blue-600 focus:ring-blue-500">
-                                                </div>
-                                            </div>
-                                            <!-- End Grid -->
+                                    <div class="mt-8">
+                                        <h2 class="text-lg font-semibold text-gray-800">
+                                            What can you expect?
+                                        </h2>
 
-                                            <div>
-                                                <label for="hs-details-hire-me"
-                                                    class="block mb-2 text-sm text-gray-700 font-medium">Details</label>
-                                                <textarea name="hs-details-hire-me" id="hs-details-hire-me" rows="4"
-                                                    class="appearance-none border border-blue-200 py-3 px-4 block w-full rounded-lg text-sm focus:outline-none focus:border-blue-600 focus:ring-blue-500"></textarea>
-                                            </div>
-                                        </div>
+                                        <ul class="mt-2 space-y-2">
+                                            <li class="flex space-x-3">
+                                                <svg class="flex-shrink-0 mt-0.5 w-5 h-5 text-gray-600"
+                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round">
+                                                    <polyline points="20 6 9 17 4 12" />
+                                                </svg>
+                                                <span class="text-gray-600">
+                                                    Efficient and effective solutions tailored to your needs
+                                                </span>
+                                            </li>
 
-                                        <!-- Submit Form -->
-                                        <div>
-                                            <!-- Checkbox -->
-                                            <div class="mt-3 flex">
-                                                <div class="flex">
-                                                    <input id="remember-me" name="remember-me" type="checkbox"
-                                                        class="shrink-0 mt-1.5 border-gray-300 rounded text-blue-600 focus:ring-blue-500">
-                                                </div>
-                                                <div class="ml-3">
-                                                    <label for="remember-me" class="text-sm text-gray-600">By
-                                                        submitting
-                                                        this
-                                                        form I have sent you an email with the above
-                                                        information</label>
-                                                </div>
-                                            </div>
-                                            <!-- End Checkbox -->
+                                            <li class="flex space-x-3">
+                                                <svg class="flex-shrink-0 mt-0.5 w-5 h-5 text-gray-600"
+                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round">
+                                                    <polyline points="20 6 9 17 4 12" />
+                                                </svg>
+                                                <span class="text-gray-600">
+                                                    Industry-leading & user-centric designs
+                                                </span>
+                                            </li>
 
-                                            <div class="mt-6 grid">
-                                                <button type="submit"
-                                                    class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">Send
-                                                    email</button>
-                                            </div>
+                                            <li class="flex space-x-3">
+                                                <svg class="flex-shrink-0 mt-0.5 w-5 h-5 text-gray-600"
+                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round">
+                                                    <polyline points="20 6 9 17 4 12" />
+                                                </svg>
+                                                <span class="text-gray-600">
+                                                    Exceptional attention to detail
+                                                </span>
+                                            </li>
 
-                                            <div class="mt-3 text-center">
-                                                <p class="text-sm text-gray-500">
-                                                    I'll get back to you in 1-3 business days.
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <!-- Submit Form -->
-                                    </form>
-                                    <!-- End Grid -->
+                                            <li class="flex space-x-3">
+                                                <svg class="flex-shrink-0 mt-0.5 w-5 h-5 text-gray-600"
+                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round">
+                                                    <polyline points="20 6 9 17 4 12" />
+                                                </svg>
+                                                <span class="text-gray-600">
+                                                    Continuous learning and sharing of best practices
+                                                </span>
+                                            </li>
+
+                                            <li class="flex space-x-3">
+                                                <svg class="flex-shrink-0 mt-0.5 w-5 h-5 text-gray-600"
+                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+                                                    stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round">
+                                                    <polyline points="20 6 9 17 4 12" />
+                                                </svg>
+                                                <span class="text-gray-600">
+                                                    Transparent pricing with no hidden costs
+                                                </span>
+                                            </li>
+                                        </ul>
+                                    </div>
 
                                 </div>
-                                <!-- End Card -->
-                            </div>
-                            <!-- End Col -->
-                        </div>
-                        <!-- End Grid -->
-                    </div>
-                    <!-- End Hire Me -->
-                </div>
-                <!-- End Get in contact -->
+                                <!-- End Col -->
 
-            </div>
+                                <div class="relative">
+                                    <!-- Card -->
+                                    <div
+                                        class="flex flex-col bg-white border border-blue-200 rounded-xl shadow-lg p-4 sm:p-6 lg:p-10">
+                                        <h2 class="text-xl font-semibold text-blue-600">
+                                            Fill in the form
+                                        </h2>
+
+                                        <form>
+                                            <div class="mt-6 grid gap-4 lg:gap-6">
+
+
+                                                <!-- Grid -->
+                                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
+                                                    <div>
+                                                        <label for="hs-name-hire-me"
+                                                            class="block mb-2 text-sm text-gray-700 font-medium">
+                                                            Name</label>
+                                                        <input type="text" id="hs-name-hire-me" name="hs-name-hire-me"
+                                                            class="appearance-none border border-blue-200 rounded-lg w-full py-3 px-4 text-sm text-gray-700 leading-tight focus:outline-none focus:border-blue-600 focus:ring-blue-500">
+                                                    </div>
+
+                                                    <div>
+                                                        <label for="hs-email-hire-me"
+                                                            class="block mb-2 text-sm text-gray-700 font-medium">
+                                                            Email</label>
+                                                        <input type="email" id="hs-email-hire-me"
+                                                            name="hs-email-hire-me"
+                                                            class="appearance-none border border-blue-200 rounded-lg w-full py-3 px-4 text-sm text-gray-700 leading-tight focus:outline-none focus:border-blue-600 focus:ring-blue-500">
+                                                    </div>
+                                                </div>
+                                                <!-- End Grid -->
+
+                                                <!-- Grid -->
+                                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
+                                                    <div>
+                                                        <label for="hs-company-name-hire-me"
+                                                            class="block mb-2 text-sm text-gray-700 font-medium">Company
+                                                            Name</label>
+                                                        <input type="text" id="hs-company-name-hire-me"
+                                                            name="hs-company-name-hire-me"
+                                                            class="appearance-none border border-blue-200 rounded-lg w-full py-3 px-4 text-sm text-gray-700 leading-tight focus:outline-none focus:border-blue-600 focus:ring-blue-500">
+                                                    </div>
+
+                                                    <div>
+                                                        <label for="hs-company-website-hire-me"
+                                                            class="block mb-2 text-sm text-gray-700 font-medium">Company
+                                                            Website</label>
+                                                        <input type="text" id="hs-company-website-hire-me"
+                                                            name="hs-company-website-hire-me"
+                                                            class="appearance-none border border-blue-200 rounded-lg w-full py-3 px-4 text-sm text-gray-700 leading-tight focus:outline-none focus:border-blue-600 focus:ring-blue-500">
+                                                    </div>
+                                                </div>
+                                                <!-- End Grid -->
+
+                                                <div>
+                                                    <label for="hs-details-hire-me"
+                                                        class="block mb-2 text-sm text-gray-700 font-medium">Details</label>
+                                                    <textarea name="hs-details-hire-me" id="hs-details-hire-me" rows="4"
+                                                        class="appearance-none border border-blue-200 py-3 px-4 block w-full rounded-lg text-sm focus:outline-none focus:border-blue-600 focus:ring-blue-500"></textarea>
+                                                </div>
+                                            </div>
+
+                                            <!-- Submit Form -->
+                                            <div>
+                                                <!-- Checkbox -->
+                                                <div class="mt-3 flex">
+                                                    <div class="flex">
+                                                        <input id="remember-me" name="remember-me" type="checkbox"
+                                                            class="shrink-0 mt-1.5 border-gray-300 rounded text-blue-600 focus:ring-blue-500">
+                                                    </div>
+                                                    <div class="ml-3">
+                                                        <label for="remember-me" class="text-sm text-gray-600">By
+                                                            submitting
+                                                            this
+                                                            form I have sent you an email with the above
+                                                            information</label>
+                                                    </div>
+                                                </div>
+                                                <!-- End Checkbox -->
+
+                                                <div class="mt-6 grid">
+                                                    <button type="submit"
+                                                        class="w-full py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">Send
+                                                        email</button>
+                                                </div>
+
+                                                <div class="mt-3 text-center">
+                                                    <p class="text-sm text-gray-500">
+                                                        I'll get back to you in 1-3 business days.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <!-- Submit Form -->
+                                        </form>
+                                        <!-- End Grid -->
+
+                                    </div>
+                                    <!-- End Card -->
+                                </div>
+                                <!-- End Col -->
+                            </div>
+                            <!-- End Grid -->
+                        </div>
+                        <!-- End Hire Me -->
+                    </div>
+                    <!-- End Get in contact -->
+
+                </div>
         </main>
         <!-- ========== END MAIN CONTENT ========== -->
 
@@ -550,40 +1438,114 @@
                         John</a>
                 </div>
                 <!-- End Col -->
+
                 <!-- Social Brands -->
                 <div class="mt-3 space-x-2">
-                    <a class="size-8 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
-                        href="#">
-                        <svg class="flex-shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                            fill="currentColor" viewBox="0 0 16 16">
-                            <path
-                                d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z" />
-                        </svg>
-                    </a>
-                    <a class="size-8 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
-                        href="#">
-                        <svg class="flex-shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                            fill="currentColor" viewBox="0 0 16 16">
-                            <path
-                                d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z" />
-                        </svg>
-                    </a>
-                    <a class="size-8 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
-                        href="#">
-                        <svg class="flex-shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                            fill="currentColor" viewBox="0 0 16 16">
-                            <path
-                                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-                        </svg>
-                    </a>
-                    <a class="size-8 inline-flex justify-center items-center gap-x-2 text-sm font-semibold rounded-full border border-transparent text-gray-500 hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
-                        href="#">
-                        <svg class="flex-shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                            fill="currentColor" viewBox="0 0 16 16">
-                            <path
-                                d="M3.362 10.11c0 .926-.756 1.681-1.681 1.681S0 11.036 0 10.111C0 9.186.756 8.43 1.68 8.43h1.682v1.68zm.846 0c0-.924.756-1.68 1.681-1.68s1.681.756 1.681 1.68v4.21c0 .924-.756 1.68-1.68 1.68a1.685 1.685 0 0 1-1.682-1.68v-4.21zM5.89 3.362c-.926 0-1.682-.756-1.682-1.681S4.964 0 5.89 0s1.68.756 1.68 1.68v1.682H5.89zm0 .846c.924 0 1.68.756 1.68 1.681S6.814 7.57 5.89 7.57H1.68C.757 7.57 0 6.814 0 5.89c0-.926.756-1.682 1.68-1.682h4.21zm6.749 1.682c0-.926.755-1.682 1.68-1.682.925 0 1.681.756 1.681 1.681s-.756 1.681-1.68 1.681h-1.681V5.89zm-.848 0c0 .924-.755 1.68-1.68 1.68A1.685 1.685 0 0 1 8.43 5.89V1.68C8.43.757 9.186 0 10.11 0c.926 0 1.681.756 1.681 1.68v4.21zm-1.681 6.748c.926 0 1.682.756 1.682 1.681S11.036 16 10.11 16s-1.681-.756-1.681-1.68v-1.682h1.68zm0-.847c-.924 0-1.68-.755-1.68-1.68 0-.925.756-1.681 1.68-1.681h4.21c.924 0 1.68.756 1.68 1.68 0 .926-.756 1.681-1.68 1.681h-4.21z" />
-                        </svg>
-                    </a>
+                    <div class="relative group inline-block">
+                        <a class="inline-flex justify-center items-center gap-x-2 rounded-lg border border-transparent p-2 hover:bg-blue-100 disabled:opacity-50 disabled:pointer-events-none transform transition-transform duration-300 group-hover:-translate-y-2"
+                            target="_blank" href="https://www.linkedin.com/in/mwendwa-john-26bb75190/">
+                            <svg class="flex-shrink-0 size-5" fill="#2563EB" height="200px" width="200px" version="1.1"
+                                id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-143 145 512 512"
+                                xml:space="preserve">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <path
+                                        d="M329,145h-432c-22.1,0-40,17.9-40,40v432c0,22.1,17.9,40,40,40h432c22.1,0,40-17.9,40-40V185C369,162.9,351.1,145,329,145z M41.4,508.1H-8.5V348.4h49.9V508.1z M15.1,328.4h-0.4c-18.1,0-29.8-12.2-29.8-27.7c0-15.8,12.1-27.7,30.5-27.7c18.4,0,29.7,11.9,30.1,27.7C45.6,316.1,33.9,328.4,15.1,328.4z M241,508.1h-56.6v-82.6c0-21.6-8.8-36.4-28.3-36.4c-14.9,0-23.2,10-27,19.6c-1.4,3.4-1.2,8.2-1.2,13.1v86.3H71.8c0,0,0.7-146.4,0-159.7h56.1v25.1c3.3-11,21.2-26.6,49.8-26.6c35.5,0,63.3,23,63.3,72.4V508.1z">
+                                    </path>
+                                </g>
+                            </svg>
+                        </a>
+                        <span
+                            class="absolute bottom-full mb-2 hidden group-hover:flex justify-center items-center px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-lg shadow-lg transform transition-transform duration-300 group-hover:-translate-y-2">
+                            LinkedIn
+                        </span>
+                    </div>
+
+                    <div class="relative group inline-block">
+                        <a class="inline-flex justify-center items-center gap-x-2 rounded-lg border border-transparent p-2 hover:bg-blue-100 disabled:opacity-50 disabled:pointer-events-none transform transition-transform duration-300 group-hover:-translate-y-2"
+                            target="_blank" href="https://github.com/mwendwa-john">
+                            <svg class="flex-shrink-0 size-5" viewBox="0 0 73 73" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                fill="#2563EB">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <title>team-collaboration/version-control/github</title>
+                                    <desc>Created with Sketch.</desc>
+                                    <defs> </defs>
+                                    <g id="team-collaboration/version-control/github" stroke="none" stroke-width="1"
+                                        fill="none" fill-rule="evenodd">
+                                        <g id="container" transform="translate(2.000000, 2.000000)" fill-rule="nonzero">
+                                            <rect id="mask" stroke="#2563EB" stroke-width="2" fill="#2563EB" x="-1"
+                                                y="-1" width="71" height="71" rx="14"> </rect>
+                                            <path
+                                                d="M58.3067362,21.4281798 C55.895743,17.2972267 52.6253846,14.0267453 48.4948004,11.615998 C44.3636013,9.20512774 39.8535636,8 34.9614901,8 C30.0700314,8 25.5585181,9.20549662 21.4281798,11.615998 C17.2972267,14.0266224 14.0269912,17.2972267 11.615998,21.4281798 C9.20537366,25.5590099 8,30.0699084 8,34.9607523 C8,40.8357654 9.71405782,46.1187277 13.1430342,50.8109917 C16.5716416,55.5036246 21.0008949,58.7507436 26.4304251,60.5527176 C27.0624378,60.6700211 27.5302994,60.5875152 27.8345016,60.3072901 C28.1388268,60.0266961 28.290805,59.6752774 28.290805,59.2545094 C28.290805,59.1842994 28.2847799,58.5526556 28.2730988,57.3588401 C28.2610487,56.1650247 28.2553926,55.1235563 28.2553926,54.2349267 L27.4479164,54.3746089 C26.9330843,54.468919 26.2836113,54.5088809 25.4994975,54.4975686 C24.7157525,54.4866252 23.9021284,54.4044881 23.0597317,54.2517722 C22.2169661,54.1004088 21.4330982,53.749359 20.7075131,53.1993604 C19.982297,52.6493618 19.4674649,51.9294329 19.1631397,51.0406804 L18.8120898,50.2328353 C18.5780976,49.6950097 18.2097104,49.0975487 17.7064365,48.4426655 C17.2031625,47.7871675 16.6942324,47.3427912 16.1794003,47.108799 L15.9336039,46.9328437 C15.7698216,46.815909 15.6178435,46.6748743 15.4773006,46.511215 C15.3368806,46.3475556 15.2317501,46.1837734 15.1615401,46.0197452 C15.0912072,45.855594 15.1494901,45.7209532 15.3370036,45.6153308 C15.5245171,45.5097084 15.8633939,45.4584343 16.3551097,45.4584343 L17.0569635,45.5633189 C17.5250709,45.6571371 18.104088,45.9373622 18.7947525,46.4057156 C19.4850481,46.8737001 20.052507,47.4821045 20.4972521,48.230683 C21.0358155,49.1905062 21.6846737,49.9218703 22.4456711,50.4251443 C23.2060537,50.9284182 23.9727072,51.1796248 24.744894,51.1796248 C25.5170807,51.1796248 26.1840139,51.121096 26.7459396,51.0046532 C27.3072505,50.8875956 27.8338868,50.7116403 28.3256025,50.477771 C28.5362325,48.9090515 29.1097164,47.7039238 30.0455624,46.8615271 C28.7116959,46.721353 27.5124702,46.5102313 26.4472706,46.2295144 C25.3826858,45.9484285 24.2825656,45.4922482 23.1476478,44.8597436 C22.0121153,44.2280998 21.0701212,43.44374 20.3214198,42.5080169 C19.5725954,41.571802 18.9580429,40.3426971 18.4786232,38.821809 C17.9989575,37.300306 17.7590632,35.5451796 17.7590632,33.5559381 C17.7590632,30.7235621 18.6837199,28.3133066 20.5326645,26.3238191 C19.6665366,24.1944035 19.7483048,21.8072644 20.778215,19.1626478 C21.4569523,18.951772 22.4635002,19.1100211 23.7973667,19.6364115 C25.1314792,20.1630477 26.1082708,20.6141868 26.7287253,20.9882301 C27.3491798,21.3621504 27.8463057,21.6790175 28.2208409,21.9360032 C30.3978419,21.3277217 32.644438,21.0235195 34.9612442,21.0235195 C37.2780503,21.0235195 39.5251383,21.3277217 41.7022622,21.9360032 L43.0362517,21.0938524 C43.9484895,20.5319267 45.0257392,20.0169716 46.2654186,19.5488642 C47.5058357,19.0810026 48.4543466,18.9521409 49.1099676,19.1630167 C50.1627483,21.8077563 50.2565666,24.1947724 49.3901927,26.324188 C51.2390143,28.3136755 52.1640399,30.7245457 52.1640399,33.556307 C52.1640399,35.5455485 51.9232849,37.3062081 51.444357,38.8393922 C50.9648143,40.3728223 50.3449746,41.6006975 49.5845919,42.5256002 C48.8233486,43.4503799 47.8753296,44.2285916 46.7404118,44.8601125 C45.6052481,45.4921252 44.504759,45.9483056 43.4401742,46.2293914 C42.3750975,46.5104772 41.1758719,46.7217219 39.8420054,46.8621419 C41.0585683,47.9149226 41.6669728,49.5767225 41.6669728,51.846804 L41.6669728,59.2535257 C41.6669728,59.6742937 41.8132948,60.0255895 42.1061847,60.3063064 C42.3987058,60.5865315 42.8606653,60.6690374 43.492678,60.5516109 C48.922946,58.7498829 53.3521992,55.5026409 56.7806837,50.810008 C60.2087994,46.117744 61.923472,40.8347817 61.923472,34.9597686 C61.9222424,30.0695396 60.7162539,25.5590099 58.3067362,21.4281798 Z"
+                                                id="Shape" fill="#FFFFFF"> </path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </a>
+                        <span
+                            class="absolute bottom-full mb-2 hidden group-hover:flex justify-center items-center px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-lg shadow-lg transform transition-transform duration-300 group-hover:-translate-y-2">
+                            gitHub
+                        </span>
+                    </div>
+
+                    <div class="relative group inline-block">
+                        <a class="inline-flex justify-center items-center gap-x-2 rounded-lg border border-transparent p-2 hover:bg-blue-100 disabled:opacity-50 disabled:pointer-events-none transform transition-transform duration-300 group-hover:-translate-y-2"
+                            target="_blank" href="https://www.instagram.com/_mwendwajohn/">
+                            <svg class="flex-shrink-0 size-5" fill="#2563EB" height="200px" width="200px" version="1.1"
+                                id="Shopicons" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 48" xml:space="preserve">
+                                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                                <g id="SVGRepo_iconCarrier">
+                                    <style type="text/css">
+                                        .st0 {
+                                            fill: none;
+                                        }
+                                    </style>
+                                    <g>
+                                        <path class="st0" d="M0,0h48v48H0V0z"></path>
+                                        <path
+                                            d="M36,4H12c-4.4,0-8,3.6-8,8v24c0,4.4,3.6,8,8,8h24c4.4,0,8-3.6,8-8V12C44,7.6,40.4,4,36,4z M24,34c-5.5,0-10-4.5-10-10 s4.5-10,10-10s10,4.5,10,10S29.5,34,24,34z M35,15c-1.1,0-2-0.9-2-2c0-1.1,0.9-2,2-2s2,0.9,2,2C37,14.1,36.1,15,35,15z">
+                                        </path>
+                                    </g>
+                                </g>
+                            </svg>
+                        </a>
+                        <span
+                            class="absolute bottom-full mb-2 hidden group-hover:flex justify-center items-center px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-lg shadow-lg transform transition-transform duration-300 group-hover:-translate-y-2">
+                            Instagram
+                        </span>
+                    </div>
+
+                    <div class="relative group inline-block">
+                        <a class="inline-flex justify-center items-center gap-x-2 rounded-lg border border-transparent p-2 hover:bg-blue-100 disabled:opacity-50 disabled:pointer-events-none transform transition-transform duration-300 group-hover:-translate-y-2"
+                            target="_blank" href="https://x.com/mj_fredrick">
+                            <svg class="flex-shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                width="100" height="100" viewBox="0,0,256,256">
+                                <g fill="#2563eb" fill-rule="nonzero" stroke="none" stroke-width="1"
+                                    stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10"
+                                    stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+                                    font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                                    <g transform="scale(5.12,5.12)">
+                                        <path
+                                            d="M11,4c-3.866,0 -7,3.134 -7,7v28c0,3.866 3.134,7 7,7h28c3.866,0 7,-3.134 7,-7v-28c0,-3.866 -3.134,-7 -7,-7zM13.08594,13h7.9375l5.63672,8.00977l6.83984,-8.00977h2.5l-8.21094,9.61328l10.125,14.38672h-7.93555l-6.54102,-9.29297l-7.9375,9.29297h-2.5l9.30859,-10.89648zM16.91406,15l14.10742,20h3.06445l-14.10742,-20z">
+                                        </path>
+                                    </g>
+                                </g>
+                            </svg>
+                        </a>
+                        <span
+                            class="absolute bottom-full mb-2 hidden group-hover:flex justify-center items-center px-2 py-1 bg-blue-100 text-blue-800 text-xs rounded-lg shadow-lg transform transition-transform duration-300 group-hover:-translate-y-2">
+                            X
+                        </span>
+                    </div>
+
                 </div>
                 <!-- End Social Brands -->
 
@@ -600,7 +1562,6 @@
     <!-- Scroll to Top Button -->
     <button type="button" id="scrollToTopBtn"
         class="fixed bottom-5 right-5 py-2.5 px-1.5 text-sm font-semibold rounded-lg border border-transparent bg-blue-300 text-blue-800 hover:bg-blue-500 transition hover:-translate-y-2 focus:outline-none">
-
         <svg class="flex-shrink-0 size-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
             <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
@@ -610,6 +1571,7 @@
             </g>
         </svg>
     </button>
+
     <!-- End Scroll to Top Button -->
 
     <script src="assets/main.js"></script>
